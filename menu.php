@@ -1,6 +1,4 @@
 
-<script src="./js/loginform.js" type="text/javascript" asyn>
-</script>
 <div id="topbar">
 <?php
 require_once("dbconnection.php");
@@ -20,6 +18,9 @@ echo '<section style="float:right;display:block;height:100%;overflow:hidden;">
 <li class="top-li"><a class="top-item">Регистрация<i style="position:absolute;right:5px;"></i></a></li>
 </ul>
 </section>';
+echo '
+<script src="./js/loginform.js" type="text/javascript" async>
+</script>';
 }
 ?>
 </div>
@@ -29,9 +30,9 @@ echo '<section style="float:right;display:block;height:100%;overflow:hidden;">
 		<nav id="menu"><ul class="list">
 <li class="listelement"><a class="btn-item" href="news.php">Новости<i style="position:absolute;right:5px;"></i></a></li>
 		<li class="listelement"><a class="btn-item" href="articles.php">Cтатьи<i style="position:absolute;right:5px;"></i></a></li>
-<li class="listelement"><a class="btn-item">Что такое Облачные вычисления<i style="position:absolute;right:5px;"></i></a></li>
-<li class="listelement"><a class="btn-item">Топ 10<i style="position:absolute;right:5px;"></i></a></li>
-<li class="listelement"><a class="btn-item">Типы облачных вычислений<i style="position:absolute;right:5px;"></i></a></li>
+<li class="listelement"><a class="btn-item" href="cloud.php">Что такое облачные вычисления<i style="position:absolute;right:5px;"></i></a></li>
+<li class="listelement"><a class="btn-item" href="top.php">Топ 10<i style="position:absolute;right:5px;"></i></a></li>
+<li class="listelement"><a class="btn-item" href="companies.php">Компании<i style="position:absolute;right:5px;"></i></a></li>
 		</ul></nav>
 	</div></div>
 </header>

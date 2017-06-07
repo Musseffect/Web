@@ -19,7 +19,10 @@
 
 
 
-
-
+<input type="text" id="title" maxlength="40">
+<input type="number" id="date" min="1971" max="<?php echo date('Y'); ?>">
+<input type="text" id="site" maxlength="40">
+<input type="text" id="description" maxlength="255">
+<input type="button" value="Добавить" class="button_custom">
 </body>
 </html>

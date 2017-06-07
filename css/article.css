@@ -8,6 +8,7 @@
   margin: 10px;
   border: 1px solid black;
   padding: 5px;
+  min-height:80px;
 }
 
 .article_date
@@ -17,4 +18,56 @@
 
 .article_preview
 {
+}
+
+.article_box_admin
+{
+  margin: 10px;
+  border: 1px solid black;
+  padding: 5px 45px 5px 5px;
+  position:relative;
+}
+.delete_article
+{
+	width:40px;
+	height:40px;
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	top:0px;
+	background-color:red;
+}
+.edit_article
+{
+	width:40px;
+	height:40px;
+	position:absolute;
+	right:0px;
+	top:40px;
+	background-color:green;
+}
+
+
+.article_box_full
+{
+
+
+}
+
+.article_title_full
+{
+
+
+}
+
+.article_date_full
+{
+
+
+}
+
+.article_content
+{
+
+
 }

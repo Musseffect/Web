@@ -1,5 +1,15 @@
 <?php
 require_once "dbconnection.php";
+if(!isset($_SESSION['role']))
+{
+	echo "У вас нет прав на совершение этого действия.";
+	return;
+}else if($_SESSION['role']!=0)//not admin
+{
+	echo "У вас нет прав на совершение этого действия.";
+	return;
+}
+
 $flag=true;
 if(isset($_POST['title']))
 {
@@ -53,7 +63,7 @@ $query="INSERT into news SET
             $result=mysqli_query($conn,$query);
 if($result)
 {
-	echo "ok";
+	echo "ok".mysqli_insert_id($conn);
 }else
 {
 	echo "Не удалось добавить новость.";

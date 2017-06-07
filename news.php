@@ -29,7 +29,7 @@ $id=$_GET['id'];
 			echo '</div>';
 			echo '</article>';	
 	}else
-	echo "<div>Запрашиваемая вами страница не существует</div>";
+	echo '<div class="page_error">Запрашиваемая вами страница не существует</div>';
 
 }else
 {
@@ -44,11 +44,11 @@ $id=$_GET['id'];
 		{
 		while($row=mysqli_fetch_array($result))
 		{
-			echo '<article class="news_box"><a href=news.php?id='.$row[0].'><div class="news_title">'.$row["T"]. '</div></a>';
-			echo '<div class="news_date">'.$row[3].'</div>';
+			echo '<article class="news_box"><a href=news.php?id='.$row[0].'><div class="news_title">'.$row[2]. '</div></a>';
+			echo '<div class="news_date">'.$row[1].'</div>';
 			echo '<div class="news_preview">';
 
-			$string = strip_tags($row[2]);
+			$string = strip_tags($row[3]);
 
 				if (strlen($string) > 500) {
 
