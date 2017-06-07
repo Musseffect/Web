@@ -1,18 +1,9 @@
-<?php session_start();>
-<!DOCTYPE html>
-<html>
-<head>
-<title>this is main page</title>
-<meta charset="windows-1251">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="css/reset.css">
-<link rel="stylesheet" type="text/css" href="css/modal.css">
-<script src="/js/loginform.js">
+
+<script src="./js/loginform.js" type="text/javascript" asyn>
 </script>
-</head>
-<body>
 <div id="topbar">
 <?php
+require_once("dbconnection.php");
 if (isset($_SESSION['name'])){
 echo "<section style=\"float:right;display:block;height:100%;overflow:hidden;\">
 <ul>
