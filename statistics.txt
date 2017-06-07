@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>this is main page</title>
+<meta charset="windows-1251">
+</head>
+<body>
+</body>
+</html>
+
+
+//for i add ::before content:"\f107"
+https://www.w3schools.com/howto/howto_css_login_form.asp
+
+
+//example clutch.co
+http://www.bbc.co.uk/webwise/guides/what-is-cloud-computing
+https://clutch.co/cloud
+http://www.lessons-tva.info/archive/nov031.html
+https://sites.google.com/site/informationoncloudcomputing/home/history-and-development-of-cloud-computing
+https://www.ibm.com/cloud-computing/learn-more/what-is-cloud-computing/
+http://cloudcomputing.sys-con.com/
+https://www.unc.edu/courses/2010spring/law/357c/001/cloudcomputing/examples.html
+https://www.ibm.com/blogs/cloud-computing/2014/02/top-7-most-common-uses-of-cloud-computing/
+https://www.ibm.com/blogs/cloud-computing/2014/02/cloud-computing-basics/
+https://aws.amazon.com/ru/what-is-cloud-computing/
+http://www.interoute.com/what-cloud-computing
+https://www.youtube.com/watch?v=1J7KVNA5tn8
+
+статьи
+статистика
+Что такое облачные вычисления
+Типы облачных вычислений
+Существующие решения

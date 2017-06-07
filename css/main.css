@@ -1,0 +1,75 @@
+#topbar
+{
+
+
+	height: 40px;
+	background-color: #1d315c;
+}
+.top-item:hover
+{
+	color:yellow;
+	cursor:pointer;
+}
+.btn-item
+{
+	width:180px;
+	display:table-cell;
+	vertical-align: middle;
+	text-align: center;
+	height: 80px;
+	position: relative;
+	text-decoration:none;
+}
+.list
+{
+height:100%;
+list-style:none;
+}
+.listelement
+{
+height:100%;
+list-style:none;
+float:left;
+display:block;
+}
+.top-li
+{
+	display:block;
+	float:left;
+	padding-left:10px;
+
+	padding-right: 10px;
+}
+.top-item
+{
+position:relative;
+
+color: white;
+line-height: 40px;
+}
+#header
+{
+	height: auto;
+	display: block;
+	width: 100%;
+	background-color: #ededed;
+}
+#menubar
+{
+
+	height: auto;
+	float: left;
+}
+#menu
+{
+	clear:both;
+	float:left;
+	display:table;
+	height: 100%;
+}
+
+.btn-item:hover
+{
+	background-color:#c9c9c9;
+	cursor:pointer;
+}

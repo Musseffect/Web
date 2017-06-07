@@ -1,0 +1,20 @@
+.article_title
+{
+  font-weight: bold;
+  font-size: 25px;
+}
+.article_box
+{
+  margin: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.article_date
+{
+  padding: 10px 0 10px 0;
+}
+
+.article_preview
+{
+}
