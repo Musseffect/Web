@@ -3,19 +3,21 @@ var error;
 var text;
 var title;
 var button;
-window.onload=function()
+window.addEventListener('load', init_article_edit, false);
+
+function init_article_edit()
 {
 text=document.getElementById("text");
 title=document.getElementById("title");
-error=document.getElementById("article_add_error");
+error=document.getElementById("article_edit_error");
 button=document.getElementById('submit');
 }
 
-function send()
+function send(id)
 {
 var date=new Date();
 var xhr = new XMLHttpRequest();
-xhr.open('POST', 'article_edit.php', true);
+xhr.open('POST', 'article_change.php', true);
 xhr.onreadystatechange=function()
 {
 	if(this.readyState==4)
@@ -45,7 +47,7 @@ xhr.onreadystatechange=function()
 };
 button.value = 'Подождите...'; // (2)
 button.disabled = true;
-var mess='title='+encodeURIComponent(title.value)+'&text='+encodeURIComponent(text.value)+'&date='+encodeURIComponent(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+var mess='id='+encodeURIComponent(id)+'&title='+encodeURIComponent(title.value)+'&text='+encodeURIComponent(text.value)+'&date='+encodeURIComponent(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
 xhr.timeout=30000;
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.ontimeout=function()

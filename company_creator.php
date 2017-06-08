@@ -2,11 +2,11 @@
 require_once "dbconnection.php";
 if(!isset($_SESSION['role']))
 {
-	header("location: main.php");
+	header("location: companies.php");
 	return;
 }else if($_SESSION['role']!=0)//not admin
 {
-	header("location: main.php");
+	header("location: companies.php");
 	return;
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST")

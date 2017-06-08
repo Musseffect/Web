@@ -3,14 +3,15 @@ var error;
 var text;
 var title;
 var button;
-window.onload=function()
+window.addEventListener('load', init_article_add, false);
+
+function init_article_add()
 {
 text=document.getElementById("text");
 title=document.getElementById("title");
 error=document.getElementById("article_add_error");
 button=document.getElementById('submit');
 }
-
 function send()
 {
 var xhr = new XMLHttpRequest();

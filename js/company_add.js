@@ -37,7 +37,7 @@ xhr.onreadystatechange=function()
 			if(this.responseText.substr(0,2)=='ok')
 				{
 				//setTimeout(' window.location.href = "main.html"; ',2000);
-				str="articles.php?id="+this.responseText.substr(2);
+				str="companies.php?id="+this.responseText.substr(2);
 				setTimeout(' window.location.href="'+str+'"; ',1000);
 				}
 			else

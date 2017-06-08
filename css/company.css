@@ -73,7 +73,12 @@
 
 	
 }
-
+.company_name_preview
+{
+	margin-bottom:10px;
+	font-size:120%;
+	color:blue;
+}
 #company_box dt
 {
 

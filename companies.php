@@ -28,6 +28,10 @@ if(isset($_GET['id']))
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
+		if(mysqli_num_rows ($result)==0)
+		{
+		echo "Запрашиваемая вами страница не существует";
+		}else{
 		$row=mysqli_fetch_row($result);
 	echo '<div id="company_block">
 <div id="company_box">
@@ -47,10 +51,10 @@ if(isset($_GET['id']))
 </div>';
 			if($flag)
 			{
-			echo '<div style="padding: 10px 30px 10px 30px;"><a href="" onclick="article_remove()" id="'.$id.'" class="a_button">Удалить</a>
-			<a href="article_edit.php?id='.$id.'" class="a_button">Редактировать</a>
+			echo '<div style="padding: 10px 30px 10px 30px;"><a href="" onclick="company_remove('.$id.')" id="'.$id.'" class="a_button">Удалить</a>
 			</div>';
 			}
+		}
 	}else
 	echo "Запрашиваемая вами страница не существует";
 
@@ -60,7 +64,8 @@ if(isset($_GET['id']))
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
-			echo '<div class="center_button"><a href="company_creator.php" class="a_button">Добавить компанию</a></div>';
+		if($flag)
+		echo '<div class="center_button"><a href="company_creator.php" class="a_button">Добавить компанию</a></div>';
 		if(mysqli_num_rows ($result )==0)
 		{
 		}else
@@ -75,7 +80,7 @@ if(isset($_GET['id']))
 			echo '<img class="company_logo_img" src="img/'.$row[3].'">';
 			echo '</div>
 			<div class="company_item">
-			<div class="company_name_preview">'.$row[1].'</div>
+			<div class="company_name_preview"><a href="companies.php?id='.$row[0].'">'.$row[1].'</a></div>
 			<div class="company_preview_description">'.$row[2].'</div>
 			</div>
 			</div>';

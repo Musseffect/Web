@@ -15,7 +15,10 @@ if(!isset($_SESSION['role']))
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
+<link rel="stylesheet" type="text/css" href="css/news.css">
+<script src="./js/article_edit.js" type="text/javascript" async></script>
 </head>
 <body>
 <?php require_once("menu.php");
@@ -26,18 +29,23 @@ if(isset($_GET['id']))
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
+		if(mysqli_num_rows ($result)==0)
+		{
+		echo "Запрашиваемая вами страница не существует";
+		}{
 		$row=mysqli_fetch_row($result);
 		echo '<div id="article_edit_error">
 		</div>
 		<p>
 		Заголовок статьи<br>
-    	<input type="text"  style="border:1px silver solid; width:160px;" value="'.$row[1].'" name="title" id="title">
+    	<input type="text" style="border:1px silver solid; width:160px;" value="'.$row[1].'" name="title" id="title">
 		</p>
 		<p>
   		Содержимое статьи<br>
-  		<textarea style="width:650px; height:260px;"  name="text" id="text" cols="80" '.$row[2].'</textarea>
+  		<textarea style="width:650px; height:260px;"  name="text" id="text" cols="80" >'.$row[2].'</textarea>
 		</p>
- 		<input type="submit" class="buttons" onclick="send()"  id="submit" value="Подтвердить">';
+ 		<input type="submit" class="buttons" onclick="send('.$id.')"  id="submit" value="Подтвердить">';
+ 	}
 	}else
 	echo "Запрашиваемая вами страница не существует";
 

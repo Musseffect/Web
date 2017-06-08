@@ -28,11 +28,12 @@ echo '
 	<div style="width:100%;height:auto;display:table"><div style="width:30%;height:80px;float:left;"><a style="margin:auto; " href="/" title="home"><img style="height:100%"></a></div>
 	<div id="menubar">
 		<nav id="menu"><ul class="list">
-<li class="listelement"><a class="btn-item" href="news.php">Новости<i style="position:absolute;right:5px;"></i></a></li>
+
 		<li class="listelement"><a class="btn-item" href="articles.php">Cтатьи<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="cloud.php">Что такое облачные вычисления<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="top.php">Топ 10<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="companies.php">Компании<i style="position:absolute;right:5px;"></i></a></li>
+<li class="listelement"><a class="btn-item" href="news.php">Список ресурсов<i style="position:absolute;right:5px;"></i></a></li>
 		</ul></nav>
 	</div></div>
 </header>

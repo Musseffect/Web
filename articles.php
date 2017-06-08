@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">
+<script src="./js/article_remove.js" type="text/javascript" async>
+</script>
 </head>
 <body>
 <?php
@@ -33,19 +35,24 @@ if(isset($_GET['id']))
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
+		if(mysqli_num_rows ($result)==0)
+		{
+		echo "Запрашиваемая вами страница не существует";
+		}else{
 		$row=mysqli_fetch_row($result);
 		echo '<article class="article_box_full"><div class="article_title_full">'.$row[1]. '</div></a>';
-			echo '<div class="article_date_full">'.$row[3].'</div>';
-			echo '<div class="article_content">';
+			echo '<div class="article_date_full">'.$row[3].'</div><hr>';
+			echo '<div class="article_content"><pre>';
 			echo $row[2];
-			echo '</div>';
+			echo '</pre></div>';
 			echo '</article>';	
 			if($flag)
 			{
-			echo '<div style="padding: 10px 30px 10px 30px;"><a href="" onclick="article_remove()" id="'.$id.'" class="a_button">Удалить</a>
+			echo '<div style="padding: 10px 30px 10px 30px;"><a href="" onclick="article_remove(this)" id="'.$id.'" class="a_button">Удалить</a>
 			<a href="article_edit.php?id='.$id.'" class="a_button">Редактировать</a>
 			</div>';
 			}
+		}
 	}else
 	echo "Запрашиваемая вами страница не существует";
 
@@ -55,14 +62,12 @@ $query="select ID_article as I,article_title as T,article_content as C,date as D
 $result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
-			echo '<div class="center_button"><a href="article_creator.php" class="a_button">Добавить статью</a></div>';
-		if(mysqli_num_rows ($result )==0)
-		{
-		}else
+			
+		
 		{
 			if($flag==true)//admin
 			{
-
+echo '<div class="center_button"><a href="article_creator.php" class="a_button">Добавить статью</a></div>';
 				while($row=mysqli_fetch_array($result))
 			{
 			echo '<article class="article_box_admin"><a href=articles.php?id='.$row[0].'><div class="article_title">'.$row[1]. '</div></a>';
@@ -78,8 +83,8 @@ $result=mysqli_query($conn,$query);
 				}
 			echo $string;
 			echo '</div>';
-			echo '<input type="button" id="'.$row[0].'" class="edit_article" onclick=""></input>';
-			echo '<input type="button" id="'.$row[0].'" class="delete_article onclick=""></input>';
+			echo '<a href="article_edit.php?id='.$row[0].'"><input type="button"  class="edit_article" onclick=""></input></a>';
+			echo '<input type="button" id="'.$row[0].'" class="delete_article" onclick="article_remove(this)"></input>';
 			echo '</article>';	
 			}
 			}
@@ -89,7 +94,7 @@ $result=mysqli_query($conn,$query);
 		{
 			echo '<article class="article_box"><a href=articles.php?id='.$row[0].'><div class="article_title">'.$row[1]. '</div></a>';
 			echo '<div class="article_date">'.$row[3].'</div>';
-			echo '<div class="article_preview">';
+			echo '<div class="article_preview"><pre>';
 
 			$string = strip_tags($row[2]);
 
@@ -99,7 +104,7 @@ $result=mysqli_query($conn,$query);
     			$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="articles.php?id='.$row[0].'">Прочитать далее</a>'; 
 				}
 			echo $string;
-			echo '</div>';
+			echo '</pre></div>';
 			echo '</article>';	
 
 		}
@@ -109,5 +114,7 @@ $result=mysqli_query($conn,$query);
 }
 
 ?>
+<div id="modal_articles">
+</div>
 </body>
 </html>

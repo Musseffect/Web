@@ -50,7 +50,7 @@
 
 .article_box_full
 {
-
+margin:10px 20px 10px 20px;
 
 }
 
@@ -70,4 +70,10 @@
 {
 
 
+}
+
+.article_content pre
+{
+	word-wrap:break-word;
+	white-space:pre-wrap;
 }
