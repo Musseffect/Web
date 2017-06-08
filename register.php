@@ -1,7 +1,21 @@
+<?php 
+session_start();
+//check session
+
+///////////
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>reg form</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/modal.css">
+<link rel="stylesheet" type="text/css" href="css/article.css">
+<link rel="stylesheet" type="text/css" href="css/news.css">
 <script>
 function register()
 {
@@ -50,21 +64,16 @@ xhr.ontimeout=function()
 };
 xhr.send(mess);
 return false;
-
-
-
-
 }
 </script>
 </head>
 <body>
+<?php require_once("menu.php");?>
 <form action="" method="post">
 <input type="text" id="login" name="login"><div id="loginerror"></div>
 <input type="password" id="password" name="password"><div id="passerror"></div>
 <input type="password" id="password2" name="password2"><div id="passerror2"></div>
 <input type="submit" name="submit" id="btn-submit" value="Зарегистрироваться" >//проверка данных ajaxom
-
 </form>
-<p >Регистрация: <a href="registration.php">ссылка</a></p>
 </body>
 </html>

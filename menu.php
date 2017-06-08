@@ -15,7 +15,7 @@ else
 echo '<section style="float:right;display:block;height:100%;overflow:hidden;">
 <ul>
 <li class="top-li"><a class="top-item" id="auth">Авторизация<i style="position:absolute;right:5px;"></i></a></li>
-<li class="top-li"><a class="top-item">Регистрация<i style="position:absolute;right:5px;"></i></a></li>
+<li class="top-li"><a class="top-item" href="register.php">Регистрация<i style="position:absolute;right:5px;"></i></a></li>
 </ul>
 </section>';
 echo '

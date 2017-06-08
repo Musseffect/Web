@@ -1,3 +1,13 @@
+<?php session_start();
+if(!isset($_SESSION['role']))
+{
+	header('Location: articles.php');
+}else if($_SESSION['role']!=0)//not admin
+{
+	header('Location: articles.php');//redirect to main;
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +18,14 @@
 <link rel="stylesheet" type="text/css" href="css/article.css">
 </head>
 <body>
+<?php require_once("menu.php");
+//check get
 
 
 
 
 
 
-
-
-
-
-
-
-
+?>
 </body>
 </html>

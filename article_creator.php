@@ -2,16 +2,16 @@
 session_start();
 if(!isset($_SESSION['role']))
 {
-	header('Location: nonexistingpage.php');
+	header('Location: articles.php');
 }else if($_SESSION['role']!=0)//not admin
 {
-	header('Location: menu.php');//redirect to main;
+	header('Location: articles.php');//redirect to main;
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="./js/news_add.js" type="text/javascript" async>
+<script src="./js/article_add.js" type="text/javascript" async>
 </script>
 <title>this is news creator page</title>
 <meta charset="utf-8">
@@ -23,7 +23,7 @@ if(!isset($_SESSION['role']))
 </head>
 <body>
 <?php include_once("menu.php");?>
-<div id="error">
+<div id="article_add_error">
 </div>
 <p>
 	Заголовок статьи<br>

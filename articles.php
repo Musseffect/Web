@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>this is main page</title>
-<meta charset="windows-1251">
+<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">

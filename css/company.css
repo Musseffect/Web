@@ -4,16 +4,64 @@
 
 
 
+	/*! margin-top: 5px; */
+	/*! margin-bottom: 20px; */
+	/*! margin-left: 5px; */
+	margin: 5px 5px 20px 5px;
+	background-color: #e6e6e6;
+	border: 1px black dashed;
+	padding: 5px;
 }
-
+#company_description
+{
+	
+	
+	
+}
+#company_block
+{
+	
+	
+	
+	
+	margin: 20px;
+}
 
 #company_box dd
 {
 
 
 	
+	padding-bottom: 10px;
+	/*! border-bottom: 1px dashed; */
 }
-
+.company_item
+{
+	
+	
+	
+	margin: 0px 0px 0px 140px;
+}
+#company_name{
+	
+	
+	
+	font-size: 200%;
+}
+.company_logo
+{
+	
+	
+	width: 130px;
+	display: inline;
+	float: left;
+}
+.company_preview_block
+{
+	
+	
+	margin: 5px 20px 5px 20px;
+}
 #company_box dl
 {
 
@@ -30,4 +78,5 @@ width:40%;
 float:left;
 
 	
+/*! margin: 0px 0px 10px 0px; */
 }
