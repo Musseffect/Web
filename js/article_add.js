@@ -13,7 +13,6 @@ button=document.getElementById('submit');
 
 function send()
 {
-var date=new Date();
 var xhr = new XMLHttpRequest();
 xhr.open('POST', 'article_add.php', true);
 xhr.onreadystatechange=function()
@@ -45,7 +44,7 @@ xhr.onreadystatechange=function()
 };
 button.value = 'Подождите...'; // (2)
 button.disabled = true;
-var mess='title='+encodeURIComponent(title.value)+'&text='+encodeURIComponent(text.value)+'&date='+encodeURIComponent(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+var mess='title='+encodeURIComponent(title.value)+'&text='+encodeURIComponent(text.value);
 xhr.timeout=30000;
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xhr.ontimeout=function()

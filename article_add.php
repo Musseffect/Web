@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "dbconnection.php";
 if(!isset($_SESSION['role']))
 {
@@ -9,11 +10,10 @@ if(!isset($_SESSION['role']))
 	echo "У вас нет прав на совершение этого действия.";
 	return;
 }
-
 $flag=true;
 if(isset($_POST['title']))
 {
-	$title=$_POST['title'];
+	$title=htmlspecialchars($_POST['title']);
 	if($title=="")
 	{
 		$flag=false;
@@ -25,22 +25,11 @@ else
 	$flag=false;
 	echo "Поле заголовок должно быть заполнено.";
 }
-if(isset($_POST['date']))
-{
-	$date=$_POST['date'];
-	if($date=="")
-	{
-		$date=date("Y-m-d");
-	}
-}
-else
-{
-	$date=date("Y-m-d");
 
-}
+$date=date("Y-m-d");
 if(isset($_POST['text']))
 {
-	$text=$_POST['text'];
+	$text=htmlspecialchars($_POST['text']);
 	if($text=="")
 	{
 		$flag=false;

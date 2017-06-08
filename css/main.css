@@ -18,6 +18,11 @@
 	position: relative;
 	text-decoration:none;
 }
+.company_logo_img
+{
+	width:130px;
+
+}
 .list
 {
 height:100%;

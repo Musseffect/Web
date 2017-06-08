@@ -1,5 +1,6 @@
 <?php
-header('Content-Type: text/plain; charset=windows-1251'); 
+session_start();
+header('Content-Type: text/plain; charset=utf-8'); 
 require_once "dbconnection.php";
 $pass=$_REQUEST['password'];
 //check password

@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css/news.css">
 </head>
 <body>
-
 <?php
 require_once("menu.php");
 require_once("dbconnection.php");
@@ -56,15 +55,14 @@ $query="select ID_article as I,article_title as T,article_content as C,date as D
 $result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
+			echo '<div class="center_button"><a href="article_creator.php" class="a_button">Добавить статью</a></div>';
 		if(mysqli_num_rows ($result )==0)
 		{
-			echo '<div>К сожалению на данный момент на сайте нет ни одной статьи.</div>';
 		}else
 		{
 			if($flag==true)//admin
 			{
 
-			echo '<div class="center_button"><a href="article_creator.php" class="a_button">Добавить статью</a></div>';
 				while($row=mysqli_fetch_array($result))
 			{
 			echo '<article class="article_box_admin"><a href=articles.php?id='.$row[0].'><div class="article_title">'.$row[1]. '</div></a>';
