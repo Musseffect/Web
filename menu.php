@@ -33,7 +33,9 @@ echo '
 <li class="listelement"><a class="btn-item" href="cloud.php">Что такое облачные вычисления<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="top.php">Топ 10<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="companies.php">Компании<i style="position:absolute;right:5px;"></i></a></li>
-<li class="listelement"><a class="btn-item" href="news.php">Список ресурсов<i style="position:absolute;right:5px;"></i></a></li>
+<li class="listelement"><a class="btn-item drop-down-button" href="#">Список ресурсов<i style="position:absolute;right:5px;"></i></a>
+<li>
+</li>
 		</ul></nav>
 	</div></div>
 </header>
@@ -44,8 +46,8 @@ echo '
     <h2>Авторизация</h2>
   </div>
   <div class="modal-body">
-	<p>Введите логин<input type="text" id="login" name="login"></p>
-	<p>Введите пароль<input type="password" id="password" name="password"></p>
+	<p>Введите логин</p><input type="text" id="login" name="login">
+	<p>Введите пароль</p><input type="password" id="password" name="password">
 	<input type="button" name="submit" id="btn-submit" value="Авторизоваться" onclick="subm()">
   </div>
   <div class="modal-footer">

@@ -21,6 +21,7 @@ if(!isset($_SESSION['role']))
 <script src="./js/article_edit.js" type="text/javascript" async></script>
 </head>
 <body>
+<div class="content">
 <?php require_once("menu.php");
 if(isset($_GET['id']))
 {
@@ -51,5 +52,8 @@ if(isset($_GET['id']))
 
 }
 ?>
+</div>
+
+<?php require_once("footer.php");?>
 </body>
 </html>

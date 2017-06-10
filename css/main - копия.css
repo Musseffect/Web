@@ -95,23 +95,3 @@ line-height: 40px;
 
 	
 }
-
-.footer
-{
-background-color:blue;
-
-
-
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-.content
-{
-
-
-	
-  flex: 1 0 auto;
-}

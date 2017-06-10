@@ -22,6 +22,7 @@ if(!isset($_SESSION['role']))
 <link rel="stylesheet" type="text/css" href="css/news.css">
 </head>
 <body>
+<div class="content">
 <?php include_once("menu.php");?>
 <div id="article_add_error">
 </div>
@@ -34,6 +35,8 @@ if(!isset($_SESSION['role']))
    <textarea style="width:650px; height:260px;"  name="text" id="text" cols="80" ></textarea>
 </p>
  <input type="submit" class="buttons" onclick="send()"  id="submit" value="Подтвердить">
+ </div>
 </body>
+<?php require_once("footer.php");?>
 </html>
 
