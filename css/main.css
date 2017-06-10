@@ -89,15 +89,31 @@ line-height: 40px;
 
 }
 
+
 .page_error
 {
 
 
 	
 }
+#btn-submit
+{
+	background-color:#1bb61b;
+	border:1px solid green;
+    height:40px;
+}
+#btn-submit:hover
+{background-color:green;
+	cursor:pointer;
+}
+#btn-submit:active
+{
+	background-color:#145314;
+}
 
 .footer
 {
+	margin-top:20px;
 background-color:blue;
 
 
@@ -107,11 +123,17 @@ background-color:blue;
 body {
   display: flex;
   flex-direction: column;
+  height:100%;
+}
+html
+{
+	
+  height:100%;
 }
 .content
 {
 
 
-	
+
   flex: 1 0 auto;
 }

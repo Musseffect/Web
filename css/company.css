@@ -90,3 +90,27 @@ float:left;
 	
 /*! margin: 0px 0px 10px 0px; */
 }
+
+
+
+
+.center_button
+{
+	margin-top:10px;
+	display:flex;
+	justify-content: center;
+}
+.button
+{
+background-color:#1bb61b;
+    border:1px solid green;
+  	padding:10px;
+}
+.button:hover
+{background-color:green;
+    cursor:pointer;
+}
+.button:active
+{
+    background-color:#145314;
+}

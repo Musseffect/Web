@@ -24,17 +24,21 @@ if(!isset($_SESSION['role']))
 <body>
 <div class="content">
 <?php include_once("menu.php");?>
+<div class="article_editor">
 <div id="article_add_error">
 </div>
 <p>
 	Заголовок статьи<br>
-    <input type="text"  style="border:1px silver solid; width:160px;" name="title" id="title">
+    <input type="text" style="border:1px silver solid; " name="title" id="title">
 </p>
 <p>
    Содержимое статьи<br>
-   <textarea style="width:650px; height:260px;"  name="text" id="text" cols="80" ></textarea>
+   <textarea style=" height:260px;"  name="text" id="text" cols="80" ></textarea>
 </p>
- <input type="submit" class="buttons" onclick="send()"  id="submit" value="Подтвердить">
+</div>
+<div class="center_button">
+ <input type="submit" class="button" onclick="send()"  id="submit" value="Подтвердить">
+ </div>
  </div>
 </body>
 <?php require_once("footer.php");?>

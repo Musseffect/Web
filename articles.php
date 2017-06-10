@@ -50,8 +50,8 @@ if(isset($_GET['id']))
 			echo '</article>';	
 			if($flag)
 			{
-			echo '<div style="padding: 10px 30px 10px 30px;"><input type="button" onclick="invoke_modal(article_remove,this)" id="'.$id.'" value="Удалить">
-			<a href="article_edit.php?id='.$id.'"><input type="button"  value="Редактировать"></a>
+			echo '<div style="padding: 10px 30px 10px 30px;"><input type="button" onclick="invoke_modal(article_remove,this)" id="'.$id.'" value="Удалить" class="button">
+			<a href="article_edit.php?id='.$id.'" style="text-decoration:none;"><input type="button" value="Редактировать" class="button"></a>
 			</div>';
 			}
 		}
@@ -67,10 +67,13 @@ $result=mysqli_query($conn,$query);
 		{
 			if($flag==true)//admin
 			{
-echo '<div class="center_button"><a href="article_creator.php" class="a_button">Добавить статью</a></div>';
+echo '<div class="center_button"><a href="article_creator.php" style="text-decoration:none;"><input type=button value="Добавить статью" class="button"></a></div>';
 				while($row=mysqli_fetch_array($result))
 			{
-			echo '<article class="article_box_admin"><div class="article_title"><a href=articles.php?id='.$row[0].'>'.$row[1]. '</a></div>';
+			echo '<article class="article_box">';
+			echo '<a href="article_edit.php?id='.$row[0].'"><input type="button"  class="edit_article" onclick=""></input></a>';
+			echo '<input type="button" id="'.$row[0].'" class="delete_article" onclick="invoke_modal(article_remove,this)"></input>';
+			echo '<div class="article_title"><a href=articles.php?id='.$row[0].'>'.$row[1]. '</a></div>';
 			echo '<div class="article_date">'.$row[3].'</div>';
 			echo '<div class="article_preview">';
 
@@ -83,8 +86,7 @@ echo '<div class="center_button"><a href="article_creator.php" class="a_button">
 				}
 			echo $string;
 			echo '</div>';
-			echo '<a href="article_edit.php?id='.$row[0].'"><input type="button"  class="edit_article" onclick=""></input></a>';
-			echo '<input type="button" id="'.$row[0].'" class="delete_article" onclick="invoke_modal(article_remove,this)"></input>';
+		
 			echo '</article>';	
 			}
 			}
@@ -121,8 +123,10 @@ echo '
 <div id="myModalConfirm">
 <div id="modal-confirm">
 <p>Вы уверены?</p>
-<input type="button" value="Да" onclick="accept_modal()">
-<input type="button" value="Нет" onclick="reject_modal()">
+<div>
+<input type="button" value="Да" onclick="accept_modal()" class="modal_button">
+<input type="button" value="Нет" onclick="reject_modal()" class="modal_button">
+</div>
 </div>
 </div>
 <div id="throbber">

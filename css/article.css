@@ -7,13 +7,25 @@
 {
 	color:blue;
   text-decoration:none;
+  overflow-wrap:break-word;
+}
+#title
+{
+	width:100%;
+}
+#text
+{
+	width:100%;
+	resize: vertical;
+	min-height:100px;
 }
 .article_box
 {
   margin: 10px;
   border: 1px solid black;
+  border-radius:8px;
   padding: 5px;
-  min-height:80px;
+  /*min-height:80px;*/
 }
 
 .article_date
@@ -29,26 +41,34 @@
 {
   margin: 10px;
   border: 1px solid black;
-  padding: 5px 45px 5px 5px;
+  padding: 5px 5px 5px 5px;
   position:relative;
 }
 .delete_article
 {
-	width:40px;
-	height:40px;
-	position:absolute;
+	width:10px;
+	height:10px;
+	/*position:absolute;
 	right:0px;
 	bottom:0px;
-	top:0px;
+	top:0px;*/
+	float:right;
 	background-color:red;
 }
+.delete_article:before
+{
+	content:'x';
+
+}
+
 .edit_article
 {
-	width:40px;
-	height:40px;
-	position:absolute;
+	width:10px;
+	height:10px;
+	/*position:absolute;
 	right:0px;
-	top:40px;
+	top:40px;*/
+	float:right;
 	background-color:green;
 }
 
@@ -63,6 +83,7 @@ margin:10px 20px 10px 20px;
 {
 font-family:Times New Roman;
 font-size:28px;
+  overflow-wrap:break-word;
 }
 
 .article_date_full
@@ -206,5 +227,30 @@ right: 0;
         opacity: 0;
     }
 }
+.article_editor
+{
+	margin-left:20px;
+	margin-right:20px;
+	margin-top:10px;
 
-
+}
+.center_button
+{
+	margin-top:10px;
+	display:flex;
+	justify-content: center;
+}
+.button
+{
+background-color:#1bb61b;
+    border:1px solid green;
+  	padding:10px;
+}
+.button:hover
+{background-color:green;
+    cursor:pointer;
+}
+.button:active
+{
+    background-color:#145314;
+}

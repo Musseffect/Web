@@ -18,7 +18,15 @@
     padding: 20px;
     border: 1px solid #888;
    /* width: 80%; *//* Could be more or less, depending on screen size */
-    display:table;
+   width:200px;
+    display:flex;
+    flex-direction: column;
+    overflow:hidden;
+}
+#error
+{
+    overflow-wrap:break-word;
+
 }
 #login,#password
 {
@@ -62,3 +70,19 @@
 
 }
 
+.modal_button
+{
+background-color:#1bb61b;
+    border:1px solid green;
+    float:left;
+    padding:10px 30px;
+    width:50%;
+}
+.modal_button:hover
+{background-color:green;
+    cursor:pointer;
+}
+.modal_button:active
+{
+    background-color:#145314;
+}

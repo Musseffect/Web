@@ -65,7 +65,7 @@ if(isset($_GET['id']))
 	if($result!=false)
 	{
 		if($flag)
-		echo '<div class="center_button"><a href="company_creator.php" class="a_button">Добавить компанию</a></div>';
+		echo '<div class="center_button"><a href="company_creator.php" style="text-decoration:none;"><input type=button value="Добавить компанию" class="button"></a></div>';
 		if(mysqli_num_rows ($result )==0)
 		{
 		}else

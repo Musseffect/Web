@@ -1,12 +1,18 @@
 //passwords : pass pass2 pass2
-var modal;
+var modal_login;
 var auth;
 var span;
 var log;
 var pass;
 var err;
-window.onload=function(){
-modal = document.getElementById('myModal');
+if( document.readyState != 'loading' ) {
+	init_loginform();
+} else {
+document.addEventListener("DOMContentLoaded",init_loginform , false);
+}
+function init_loginform()
+{
+modal_login = document.getElementById('myModal');
 
 // Get the button that opens the modal
 auth = document.getElementById('auth');
@@ -18,12 +24,13 @@ log=document.getElementById('login');
 pass=document.getElementById('password');
 err=document.getElementById('error');
 auth.onclick = function() {
-    modal.style.display = "block";
+    modal_login.style.display = "block";
 }
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+    modal_login.style.display = "none";
         err.innerHTML="";
         log.value="";
         pass.value="";
@@ -34,7 +41,7 @@ span.onclick = function() {
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal_login.style.display = "none";
         err.innerHTML="";
         log.value="";
         pass.value="";
