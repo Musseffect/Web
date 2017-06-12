@@ -18,6 +18,11 @@
 	position: relative;
 	text-decoration:none;
 }
+.top-ul
+{
+	height:100%;
+
+}
 .drop-down-button
 {
 
@@ -45,15 +50,15 @@ display:block;
 	display:block;
 	float:left;
 	padding-left:10px;
-
+	height:100%;
 	padding-right: 10px;
 }
 .top-item
 {
 position:relative;
-
+display:flex;
+align-items:center;
 color: white;
-line-height: 40px;
 }
 #header
 {

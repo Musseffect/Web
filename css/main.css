@@ -11,17 +11,32 @@
 .btn-item
 {
 	width:180px;
-	display:table-cell;
-	vertical-align: middle;
+	display:flex;
+	/*! vertical-align: middle; */
 	text-align: center;
 	height: 80px;
 	position: relative;
 	text-decoration:none;
+	justify-content: center;
+	/*! align-items: center; */
+	flex-direction: column;
 }
-.drop-down-button
+.dropdown-button
 {
 
 	
+}
+.dropdown-button:hover>.dropdown-content
+{
+	display:flex;
+	position:absolute;
+	flex-direction: column;
+	background-color: #ededed;
+	/*! right: 0px; */
+	/*! left: 0px; */
+	/*! width: 100%; */
+	/*! right: 0px; */
+	/*! left: 0px; */
 }
 .company_logo_img
 {
@@ -39,21 +54,28 @@ height:100%;
 list-style:none;
 float:left;
 display:block;
+position: relative;
 }
 .top-li
 {
 	display:block;
 	float:left;
 	padding-left:10px;
-
+	height:100%;
 	padding-right: 10px;
+}
+.top-ul
+{
+height:100%;
+
 }
 .top-item
 {
 position:relative;
-
+display:flex;
+align-items:center;
 color: white;
-line-height: 40px;
+height:100%;
 }
 #header
 {
@@ -66,12 +88,14 @@ line-height: 40px;
 {
 
 	height: auto;
-	float: left;
+	float: right;
+	/*! width: auto; */
+	/*! display: table-cell; */
 }
 #menu
 {
 	clear:both;
-	float:left;
+	/*! float:right; */
 	display:table;
 	height: 100%;
 }
@@ -83,11 +107,6 @@ line-height: 40px;
 }
 
 
-.button_custom
-{
-
-
-}
 
 
 .page_error
@@ -114,8 +133,8 @@ line-height: 40px;
 .footer
 {
 	margin-top:20px;
-background-color:blue;
-
+background-color:#ededed;
+	padding:10px;
 
 
 }
@@ -132,8 +151,80 @@ html
 }
 .content
 {
-
-
-
   flex: 1 0 auto;
+}
+
+
+#register_form
+{
+	margin: auto;
+	padding: 20px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+
+
+}
+.page_info
+{
+	font-size:30px;
+	color:#3e393980;
+	margin-bottom:10px;
+	font-family: Times New Roman;
+	font-weight: normal;
+}
+.page_info:after
+{
+	content:':';
+}
+.page_info:before
+{
+	content:"";
+	display:block;
+	background: url("../img/page-icon.png") no-repeat;
+	background-size:30px 30px;
+	height:30px;
+	width:30px;
+	float:left;
+	margin:0 6px 0 0;
+}
+#register_center_div
+{
+	width: 100%;
+	display: inline-flex;
+	margin-top: 20px;
+}
+.logout
+{
+}
+.logout:after
+{
+	content:'';
+	background:url("../img/logout-white.png") no-repeat;
+	background-size:30px 100%;
+	/*! height:100%; */
+	width:30px;
+	float:right;
+	margin:0 0 0 6px;
+
+	padding: 15px 0px;
+}
+#login_register,#password_register,#password2_register
+{
+	padding: 12px 20px;
+    margin:10px 0px 10px 0px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#register_form h3
+{
+	 display:block;
+    font-size:28px;
+    margin-bottom:20px;	
+}
+
+.dropdown-content
+{
+
+display:none;
 }

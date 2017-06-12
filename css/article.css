@@ -9,6 +9,11 @@
   text-decoration:none;
   overflow-wrap:break-word;
 }
+.logout
+{
+
+
+}
 #title
 {
 	width:100%;
@@ -21,9 +26,9 @@
 }
 .article_box
 {
-  margin: 10px;
+  margin: 10px 0px;
   border: 1px solid black;
-  border-radius:8px;
+ /* border-radius:8px;*/
   padding: 5px;
   /*min-height:80px;*/
 }
@@ -242,15 +247,22 @@ right: 0;
 }
 .button
 {
-background-color:#1bb61b;
-    border:1px solid green;
+    background-color:#1bb61b;/*  #2d7ece ;*/
+    border:1px solid green;/*1px solid #160ace*/
   	padding:10px;
+    /*color:white*/
 }
 .button:hover
-{background-color:green;
+{background-color:green;/*#2167b6*/
     cursor:pointer;
 }
 .button:active
 {
     background-color:#145314;
+    /*  #142d53 ;*/
+}
+#articles_column
+{
+	margin:10px 20px 0px 20px;
+
 }

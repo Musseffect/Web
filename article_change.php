@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once "dbconnection.php";
-if(!isset($_SESSION['role']))
+if(!isset($_SESSION['articles_perms']))
 {
 	echo "У вас нет прав доступа.";
 	return;
-}else if($_SESSION['role']!=0)//not admin
+}else if($_SESSION['articles_perms']!=1)//not admin
 {
 	echo "У вас нет прав доступа.";
 	return;

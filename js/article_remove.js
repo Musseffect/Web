@@ -27,6 +27,7 @@ xhr.onreadystatechange=function()
 			{	
 				//error.innerHTML =this.responseText;
 				//a.value='Удалить';
+				
 				throbber.style.display="none";
 				a.disabled = false;
 			}

@@ -11,8 +11,18 @@ $result=mysqli_query($conn,$query);
 $count=mysql_num_rows($result);
 if($count==0)
 {
+	$query="select id from permissions where role_name='user'";
+	$result=mysqli_query($conn,$query);
+	$count=mysql_num_rows($result);
+	if($count==0)
+	{
+		echo 'Регистрация не удалась';
+		return;
+	}
+	$row=mysqli_fetch_row($result);
+	$id=$row[0];
 	$pass=md5($pass);
-	$query="insert into users(Username,Password,Roles) VALUES('".$username."','".$pass."',0)";
+	$query="insert into users(Username,Password,id_permissions) VALUES('".$username."','".$pass."',"$id")";//user permissions
 	$result=mysqli_query($conn,$query);
 	if($result==true)
 	{

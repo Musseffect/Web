@@ -5,6 +5,7 @@ var span;
 var log;
 var pass;
 var err;
+var login_form;
 if( document.readyState != 'loading' ) {
 	init_loginform();
 } else {
@@ -21,9 +22,11 @@ auth = document.getElementById('auth');
 span = document.getElementsByClassName("close")[0];
 
 log=document.getElementById('login');
+login_form=log.form;
 pass=document.getElementById('password');
 err=document.getElementById('error');
 auth.onclick = function() {
+        login_form.reset();
     modal_login.style.display = "block";
 }
 
@@ -40,11 +43,13 @@ span.onclick = function() {
 // When the user clicks on the button, open the modal
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == modal_login) {
         modal_login.style.display = "none";
-        err.innerHTML="";
         log.value="";
         pass.value="";
+        /*log.value="";
+        pass.value="";*/
+        err.innerHTML="";
     }
 } 
 

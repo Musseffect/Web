@@ -11,12 +11,13 @@
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 </head>
 <body>
+<div class="content">
 <?php require_once("menu.php");
 require_once("dbconnection.php");
 $flag=false;
-if(isset($_SESSION['role']))
+if(isset($_SESSION['companies_perms']))
 {
-	if($_SESSION['role']==0)
+	if($_SESSION['companies_perms']==1)
 	{
 		$flag=true;
 	}
@@ -90,12 +91,10 @@ if(isset($_GET['id']))
 }
 }
  ?>
+</div>
 
-
-
-
-
-
-
+<footer class="footer">
+All rights reserved
+</footer>
 </body>
 </html>

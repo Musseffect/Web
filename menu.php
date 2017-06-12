@@ -6,7 +6,7 @@ if (isset($_SESSION['name'])){
 echo "<section style=\"float:right;display:block;height:100%;overflow:hidden;\">
 <ul>
 <li class=\"top-li\"><a class=\"user-menu-item top-item\">".$_SESSION['name']."<i style=\"position:absolute;right:5px;\"></i></a></li>
-<li class=\"top-li\"><a class=\"top-item\" href=\"exit.php\">Выход<i style=\"position:absolute;right:5px;\"></i></a></li>
+<li class=\"top-li\"><a class=\"top-item\" href=\"exit.php\">Выход<div class=\"logout\"></div></a></li>
 </ul>
 </section>";
 }
@@ -34,7 +34,6 @@ echo '
 <li class="listelement"><a class="btn-item" href="top.php">Топ 10<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="companies.php">Компании<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item drop-down-button" href="#">Список ресурсов<i style="position:absolute;right:5px;"></i></a>
-<li>
 </li>
 		</ul></nav>
 	</div></div>
@@ -45,11 +44,16 @@ echo '
     <span class="close">&times;</span>
     <h2>Авторизация</h2>
   </div>
-  <div class="modal-body">
-	<p>Введите логин</p><input type="text" id="login" name="login">
-	<p>Введите пароль</p><input type="password" id="password" name="password">
-	<input type="button" name="submit" id="btn-submit" value="Авторизоваться" onclick="subm()">
-  </div>
+    <form id="login_form" class="modal-body" method="POST" onsubmit="subm(); return false;">
+	<label><b>Логин</b></label><input placeholder="Введите логин" type="text" id="login" name="login" required>
+	<label><b>Пароль</b></label><input placeholder="Введите пароль" type="password" id="password" name="password" required>
+	<input type="submit" name="submit" id="btn-submit" value="Авторизоваться">
+  </form>
+  <!--<div class="modal-body">
+	<label><b>Логин</b></label><input placeholder="Введите логин" type="text" id="login" name="login" required>
+	<label><b>Пароль</b></label><input placeholder="Введите пароль" type="password" id="password" name="password" reqired>
+	<input type="button" name="submit" id="btn-submit" value="Авторизоваться" onclick="subm()"> 
+  </div>-->
   <div class="modal-footer">
    <div id="error"></div>
   </div>

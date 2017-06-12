@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
 	$pass=$_POST['password'];
 	$pass=md5($pass);
 	try{
-	$query="select Role,Username from users where Username='".$username."' and Password= '".$pass."'";
+	$query="select p.delete_comments,p.articles_perms,p.companies_perms,u.Username,u.User_ID from users as u INNER JOIN permissions as p on u.id_permissions=p.id where u.Username='".$username."' and Password= '".$pass."'";
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
@@ -18,8 +18,11 @@ if(isset($_POST['submit']))
 		echo "ok";
 		$row=mysqli_fetch_row($result);
 		//print_r($row);
-		$_SESSION['role']=$row[0];
-		$_SESSION['name']=$row[1];
+		$_SESSION['delete_comments']=$row[0];
+		$_SESSION['articles_perms']=$row[1];
+		$_SESSION['companies_perms']=$row[2];
+		$_SESSION['name']=$row[3];
+		$_SESSION['id']=$row[4];
 	}else
 	{
 		echo "Что-то пошло не так, попробуйте ещё раз";

@@ -1,11 +1,11 @@
 <?php
 session_start();
 require_once "dbconnection.php";
-if(!isset($_SESSION['role']))
+if(!isset($_SESSION['articles_perms']))
 {
 	echo "У вас нет прав доступа.";
 	return;
-}else if($_SESSION['role']!=0)//not admin
+}else if($_SESSION['articles_perms']!=1)//not admin
 {
 	echo "У вас нет прав доступа.";
 	return;
@@ -23,7 +23,7 @@ if(isset($_POST['title']))
 	if($title=="")
 	{
 		$flag=false;
-		echo "Поле заголовок должно быть заполнено.";
+		echo "<p>Поле заголовок должно быть заполнено.</p>";
 	}
 }
 
@@ -35,7 +35,7 @@ if(isset($_POST['text']))
 	if($text=="")
 	{
 		$flag=false;
-		echo "Поле контента не должно быть пустым.";
+		echo "<p>Поле контента не должно быть пустым.</p>";
 	}
 }
 if($flag==false)

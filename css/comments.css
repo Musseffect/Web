@@ -1,0 +1,42 @@
+#comments_box{
+}
+.comment_content{
+  margin: 10px 0px;
+}
+.comment_date{
+}
+.comment_author{
+  font-size: 25px;
+}
+.comment_text{
+  overflow-wrap: break-word;
+}
+.comment_header
+{
+  /*! font-size: 25px; */
+  background-color: #1ec9e6;
+}
+
+#comment_add_text
+{	width:100%;
+	resize: vertical;
+	min-height:100px;
+}
+.comments_count
+{
+
+	
+  /*! margin: auto; */
+  text-align: center;
+}
+#comment_add_box
+{
+	margin:0px 20px;
+
+}
+
+#add_commentary
+{
+	display:block;
+
+}

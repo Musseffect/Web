@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['role']))
+if(!isset($_SESSION['articles_perms']))
 {
 	header('Location: articles.php');
-}else if($_SESSION['role']!=0)//not admin
+}else if($_SESSION['articles_perms']!=1)//not admin
 {
 	header('Location: articles.php');//redirect to main;
 }
@@ -25,8 +25,7 @@ if(!isset($_SESSION['role']))
 <div class="content">
 <?php include_once("menu.php");?>
 <div class="article_editor">
-<div id="article_add_error">
-</div>
+<h2 class="page_info">Создание статьи</h2>
 <p>
 	Заголовок статьи<br>
     <input type="text" style="border:1px silver solid; " name="title" id="title">
@@ -39,6 +38,8 @@ if(!isset($_SESSION['role']))
 <div class="center_button">
  <input type="submit" class="button" onclick="send()"  id="submit" value="Подтвердить">
  </div>
+<div id="article_add_error">
+</div>
  </div>
 </body>
 <?php require_once("footer.php");?>

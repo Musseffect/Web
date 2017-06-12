@@ -1,8 +1,8 @@
 <?php session_start();
-if(!isset($_SESSION['role']))
+if(!isset($_SESSION['articles_perms']))
 {
 	header('Location: articles.php');
-}else if($_SESSION['role']!=0)//not admin
+}else if($_SESSION['articles_perms']!=1)//not admin
 {
 	header('Location: articles.php');//redirect to main;
 }
@@ -36,8 +36,8 @@ if(isset($_GET['id']))
 		}{
 		$row=mysqli_fetch_row($result);
 		echo '
-		<div class="article_editor"><div id="article_edit_error">
-		</div>
+		<div class="article_editor">
+		<h3 class="page_info">Редактирование статьи</h3>
 		<p>
 		Заголовок статьи<br>
     	<input type="text" style="border:1px silver solid; " value="'.$row[1].'" name="title" id="title">
@@ -47,7 +47,8 @@ if(isset($_GET['id']))
   		<textarea   name="text" id="text" cols="80" >'.$row[2].'</textarea>
 		</p></div>
 		<div class="center_button">
- 		<input type="submit" class="button" onclick="send('.$id.')"  id="submit" value="Подтвердить"></div>';
+ 		<input type="submit" class="button" onclick="send('.$id.')"  id="submit" value="Подтвердить"></div><div id="article_edit_error">
+		</div>';
  	}
 	}else
 	echo "Запрашиваемая вами страница не существует";

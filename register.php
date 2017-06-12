@@ -4,8 +4,6 @@ session_start();
 
 ///////////
 
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,11 +67,21 @@ return false;
 </head>
 <body>
 <?php require_once("menu.php");?>
-<form action="" method="post">
-<input type="text" id="login" name="login"><div id="loginerror"></div>
-<input type="password" id="password" name="password"><div id="passerror"></div>
-<input type="password" id="password2" name="password2"><div id="passerror2"></div>
-<input type="submit" name="submit" id="btn-submit" value="Зарегистрироваться" >//проверка данных ajaxom
+<div class="content">
+<div id="register_center_div">
+<form id="register_form" action="register.php" method="post">
+<label><h3>Регистрация</h3></label>
+<label><b>Логин</b></label>
+<input type="text" id="login_register" name="login" required><div id="loginerror"></div>
+<label><b>Пароль</b></label>
+<input type="password" id="password_register" name="password" required><div id="passerror"></div>
+<label><b>Повторите пароль</b></label>
+<input type="password" id="password2_register" name="password2" required><div id="passerror2"></div>
+<input type="submit" name="submit" id="btn-submit" value="Зарегистрироваться" >
 </form>
+</div>
+</div>
+<footer class="footer">
+</footer>
 </body>
 </html>

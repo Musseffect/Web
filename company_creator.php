@@ -1,10 +1,10 @@
 <?php session_start();
 require_once "dbconnection.php";
-if(!isset($_SESSION['role']))
+if(!isset($_SESSION['companies_perms']))
 {
 	header("location: companies.php");
 	return;
-}else if($_SESSION['role']!=0)//not admin
+}else if($_SESSION['companies_perms']!=1)//not admin
 {
 	header("location: companies.php");
 	return;
