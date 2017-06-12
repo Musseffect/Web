@@ -34,12 +34,13 @@ if(!isset($_SESSION['articles_perms']))
    Содержимое статьи<br>
    <textarea style=" height:260px;"  name="text" id="text" cols="80" ></textarea>
 </p>
-</div>
 <div class="center_button">
  <input type="submit" class="button" onclick="send()"  id="submit" value="Подтвердить">
  </div>
-<div id="article_add_error">
+<div id="article_add_error" class="error">
 </div>
+</div>
+
  </div>
 </body>
 <?php require_once("footer.php");?>

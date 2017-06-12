@@ -31,6 +31,7 @@ $date=date("Y-m-d");
 if(isset($_POST['text']))
 {
 	//strip_tags(string $str[, string $allowable_tags])
+	//$text=strip_tags ( $_POST['text'], "<br><p><img><>" );
 	$text=htmlspecialchars($_POST['text']);
 	if($text=="")
 	{

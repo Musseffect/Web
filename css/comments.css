@@ -1,4 +1,5 @@
 #comments_box{
+	margin:0px 20px;
 }
 .comment_content{
   margin: 10px 0px;
@@ -7,6 +8,19 @@
 }
 .comment_author{
   font-size: 25px;
+}
+.comment_user_author
+{
+   font-size: 28px;
+   color:white; text-shadow: 1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px black;
+}
+.comment_user_author:before
+{
+  content:"[";
+}
+.comment_user_author:after
+{
+  content:"]";
 }
 .comment_text{
   overflow-wrap: break-word;

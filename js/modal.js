@@ -12,8 +12,6 @@ function init_modal()
 modal=document.getElementById("myModalConfirm");
 modal_error=document.getElementById("modal_error");
 overlay_error=document.getElementById("modal_overlay_error");
-
-
 }
 
 
@@ -60,7 +58,4 @@ function show_error(string)
 {
 	modal_error.innerHTML=string;
 	overlay_error.style.display="block";
-
-
-
 }

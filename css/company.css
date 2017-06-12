@@ -18,13 +18,17 @@
 	
 	
 }
+.companies_block
+{
+	margin:10px 20px 0px 20px;
+}
 #company_block
 {
 	
 	
 	
 	
-	margin: 20px;
+	margin:10px 20px 0px 20px;
 }
 
 #company_box dd
@@ -35,9 +39,15 @@
 	padding-bottom: 10px;
 	/*! border-bottom: 1px dashed; */
 }
-#company_add_form input
+#company_add_form
 {
-	display:inline-block;
+	margin:10px 20px;
+
+}
+#company_create_button
+{
+	/*margin:auto;*/
+	display:block;
 }
 .company_item
 {
@@ -74,6 +84,7 @@
 
 	
 }
+
 .company_name_preview
 {
 	margin-bottom:10px;
@@ -113,4 +124,20 @@ background-color:#1bb61b;
 .button:active
 {
     background-color:#145314;
+}
+
+#company_add_title
+{
+
+}
+#company_add_box
+{
+	border:1px solid black;
+	padding:20px;
+	display:table;
+}
+#logo
+{
+	/*display:block;*/
+	margin-bottom:5px;
 }

@@ -14,6 +14,7 @@ xhr.onreadystatechange=function()
 			//a.value ='Удалить';
 			throbber.style.display="none";
 			a.disabled = false;
+			show_error("Произошла ошибка.");
 
 		}else{
 			if(this.responseText.substr(0,2)=='ok')
@@ -30,6 +31,7 @@ xhr.onreadystatechange=function()
 				
 				throbber.style.display="none";
 				a.disabled = false;
+				show_error("Произошла ошибка.");
 			}
 		}
 	}
@@ -45,6 +47,7 @@ xhr.ontimeout=function()
 	//a.value ='Удалить';
 	throbber.style.display="none";
 	a.disabled = false;
+	show_error("Время ожидание ответа сервера превысило допустимое значение.");
 };
 //error.innerHTML="";
 xhr.send();

@@ -11,12 +11,12 @@
 <link rel="stylesheet" type="text/css" href="css/news.css">
 </head>
 <body>
+<div class="content">
 <?php include_once("menu.php");?>
 
 
-
-<footer>
-</footer>
+</div>
+<?php require_once("footer.php");?>
 </body>
 </html>
 

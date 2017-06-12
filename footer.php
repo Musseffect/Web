@@ -1,9 +1,3 @@
 <footer class="footer">
-<br>
-sdasdas
-<br>
-<br>
-<br>
-<br>asdas
-<br>
+All rights reserved  <br>cloudcomp.ru 2017 
 </footer>

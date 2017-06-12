@@ -3,12 +3,12 @@ session_start();
 require_once "dbconnection.php";
 if(!isset($_SESSION['companies_perms']))
 {
-	echo "У вас нет права доступа";
+	echo "У вас нет прав доступа";
 	//header("Location: articles.php");
 	return;
 }else if($_SESSION['companies_perms']!=1)//not admin
 {
-	echo "У вас нет права доступа";
+	echo "У вас нет прав доступа";
 	//header("Location: articles.php");
 	return;
 }

@@ -46,11 +46,7 @@
 overflow-wrap:break-word;
 
 }
-#error
-{
-    overflow-wrap:break-word;
 
-}
 #login,#password
 {
     padding: 12px 20px;

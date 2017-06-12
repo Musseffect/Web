@@ -1,17 +1,19 @@
 <?php
+session_start();
+require_once "dbconnection.php";
 if(!isset($_GET['id']))
 {
-	echo 'Problems';
+	echo 'Invalid request';
 	return;
 }
 if(isset($_SESSION['id']))
 {
-		$flagcomments=false;
+	$flagcomments=false;
 	if(isset($_SESSION['delete_comments']))
 	{
 		$flagcomments=$_SESSION['delete_comments'];
 	}
-	$query="SELECT user_id from comments where id=".$_GET['id'];
+	$query="SELECT ID_user from comments where id=".$_GET['id'];
 	$result=mysqli_query($conn,$query);
 	if($result)
 	{
@@ -24,7 +26,6 @@ if(isset($_SESSION['id']))
 			}
 		}
 	}
-
 	if($flagcomments=true)
 	{
 	$query="DELETE from comments where id=".$_GET['id'];
@@ -36,6 +37,9 @@ if(isset($_SESSION['id']))
 	{
 		echo "ok";
 	}
+	}else
+	{
+		echo "Невозможно удалить данный комментарий.";
 	}
 
 }else

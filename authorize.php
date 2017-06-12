@@ -4,6 +4,10 @@ header('Content-Type: text/plain; charset=utf-8');
 require_once "dbconnection.php";
 if(isset($_POST['submit']))
 {
+	if(!(isset($_POST['username'])&&isset($_POST['password'])))
+	{
+		return "Invalid requiest";
+	}
 	$username=$_POST['username'];
 	$pass=$_POST['password'];
 	$pass=md5($pass);

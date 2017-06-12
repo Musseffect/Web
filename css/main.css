@@ -106,8 +106,17 @@ height:100%;
 	cursor:pointer;
 }
 
+.error
+{
+    overflow-wrap:break-word;
+    color:red;
+}
 
-
+.form_error
+{
+	color:red;
+	margin-left:10px;
+}
 
 .page_error
 {
@@ -120,6 +129,7 @@ height:100%;
 	background-color:#1bb61b;
 	border:1px solid green;
     height:40px;
+    display:block;
 }
 #btn-submit:hover
 {background-color:green;
@@ -155,14 +165,14 @@ html
 }
 
 
-#register_form
+#register_form,#login_form
 {
 	margin: auto;
 	padding: 20px;
 	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
-
+	width:250px;
 
 }
 .page_info
@@ -188,7 +198,7 @@ html
 	float:left;
 	margin:0 6px 0 0;
 }
-#register_center_div
+#register_center_div,#login_center_div
 {
 	width: 100%;
 	display: inline-flex;
@@ -216,7 +226,7 @@ html
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-#register_form h3
+#register_form h3,#login_form h3
 {
 	 display:block;
     font-size:28px;

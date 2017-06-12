@@ -35,6 +35,7 @@ if(isset($_GET['id']))
 		}else{
 		$row=mysqli_fetch_row($result);
 	echo '<div id="company_block">
+	<h3 class="page_info">Компания</h3>
 <div id="company_box">
 <div id="company_name">'.$row[1].'</div>
 <hr>
@@ -65,13 +66,13 @@ if(isset($_GET['id']))
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
+			echo '<div class="companies_block"><h3 class="page_info">Компании</h3>';
 		if($flag)
 		echo '<div class="center_button"><a href="company_creator.php" style="text-decoration:none;"><input type=button value="Добавить компанию" class="button"></a></div>';
 		if(mysqli_num_rows ($result )==0)
 		{
 		}else
 		{
-			echo '<div class="companies_block">';
 				while($row=mysqli_fetch_array($result))
 			{
 				echo '
@@ -86,15 +87,13 @@ if(isset($_GET['id']))
 			</div>
 			</div>';
 			}
-	echo '</div>';
 	}
+	echo '</div>';
 }
 }
  ?>
 </div>
 
-<footer class="footer">
-All rights reserved
-</footer>
+<?php require_once("footer.php");?>
 </body>
 </html>

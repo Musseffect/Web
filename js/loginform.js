@@ -24,10 +24,11 @@ span = document.getElementsByClassName("close")[0];
 log=document.getElementById('login');
 login_form=log.form;
 pass=document.getElementById('password');
-err=document.getElementById('error');
+err=document.getElementById('login_error');
 auth.onclick = function() {
         login_form.reset();
     modal_login.style.display = "block";
+    login.focus();
 }
 
 

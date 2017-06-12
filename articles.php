@@ -44,6 +44,12 @@ if(isset($_SESSION['articles_perms']))
 </script>';
 	}
 }
+$userid=-1;
+if(isset($_SESSION['id']))
+{
+	$userid=$_SESSION['id'];
+	echo '<script src="./js/article_add_comment.js" type="text/javascript" async></script>';
+}
 if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
@@ -73,15 +79,16 @@ if(isset($_GET['id']))
 				//показать форму добавления комментария
 				echo '<div id="comment_add_box">
 				<textarea id="comment_add_text"></textarea>
-				<input id="add_commentary" class="button" type="button" value="Добавить комментарий" onclick="show_error(\'lol\')">
+				<input id="add_commentary" class="button" type="button" value="Добавить комментарий" onclick="add_comment('.$id.')">
 				</div>';
 			}
-			$query='select c.ID_user,c.id,c.comment,u.Username from comments as c INNER JOIN users as u on c.ID_user=u.User_ID where ID_article='.$id;
+			$query='select c.ID_user,c.id,c.comment,u.Username,c.date from comments as c INNER JOIN users as u on c.ID_user=u.User_ID where ID_article='.$id.' order by c.date desc';
 			$result=mysqli_query($conn,$query);
 			$flagcomments=false;
 			if(isset($_SESSION['delete_comments']))
 			{
-				$flagcomments=false;
+				if($_SESSION['delete_comments'])
+				$flagcomments=true;
 			}
 			if($result)
 			{
@@ -89,11 +96,31 @@ if(isset($_GET['id']))
 
 				echo '<div class="comments_count">'.$count.' ';
 				comments(array('комментарий','комментария','комментариев'),$count);
-				echo '</div>';
+				echo '</div><div id=comments_box>';
 			while($row=mysqli_fetch_array($result))
 			{
 
+				echo '<div  class="comment_content">
+				<div class="comment_header">';
+				if(($row[0]==$userid))
+				{echo '<div class="comment_user_author"><span>'
+				.$row[3].'</div>';}else{
+					echo '<div class="comment_author">'
+				.$row[3].'</div>';
+				}
+				echo '<div class="comment_date">'
+				.$row[4].'
+				</div>
+			</div>
+			<div class="comment_text">
+			'.$row[2].'
+			</div>';
+			if($flagcomments|| ($row[0]==$userid))
+			{echo '<span class="delete"><a href="#" id="'.$row[1].'" onclick="invoke_modal(comment_delete,this)">Удалить</a></span>';
 			}
+			echo '</div>';
+			}
+			echo '</div>';
 
 			}
 			//вывести комментарии
@@ -161,10 +188,7 @@ $result=mysqli_query($conn,$query);
 }
 
 ?>
-<?php 
-if($flag==true)//admin
-			{
-echo '
+
 <div id="myModalConfirm">
 <div id="modal-confirm">
 <p>Вы уверены?</p>
@@ -179,9 +203,7 @@ echo '
   <li></li><li></li><li></li><li></li>
   <li></li><li></li><li></li><li></li>
 </ul>
-</div>';
-}
-?></div>
+</div></div>
 <div id="modal_overlay_error">
 <div class="modal-content">
 <div id="modal_error">
