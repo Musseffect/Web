@@ -67,11 +67,11 @@ echo '
 </header>
 <div id="myModal" class="modal">
 <div class="modal-content">
-  <div class="modal-header">
+      <div class="modal-header">
     <span class="close">&times;</span>
     <h2>Авторизация</h2>
   </div>
-    <form id="login_form" class="modal-body" method="POST" onsubmit="subm(); return false;">
+    <form id="login_form_modal" class="modal-body" method="POST" onsubmit="subm(); return false;">
 	<label><b>Логин</b></label><input placeholder="Введите логин" type="text" id="login" name="login" required>
 	<label><b>Пароль</b></label><input placeholder="Введите пароль" type="password" id="password" name="password" required>
 	<input type="submit" name="submit" id="btn-submit" value="Авторизоваться">
@@ -82,7 +82,7 @@ echo '
 	<input type="button" name="submit" id="btn-submit" value="Авторизоваться" onclick="subm()"> 
   </div>-->
   <div class="modal-footer">
-   <div id="login_error"></div>
+   <div id="login_error" class="error"></div>
   </div>
 </div>
 </div>

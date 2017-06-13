@@ -5,7 +5,9 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
+<link rel="stylesheet" type="text/css" href="css/news.css">
 </head>
 <body>
 <article class="article_box"><div class="article_title">This is title</div>
@@ -15,5 +17,25 @@
 Прозрачность мифологического сознания проявляется в том, что представленная в мифе картина мира полностью отождествляется первобытным человеком с самой реальностью; индивид наивно верит в то, что вещи и явления окружающего мира именно таковы, какими они выглядят в мифологической интерпретации.
 </div>
 </article>
+
+<div class="content">
+<div class="article_editor">
+<h2 class="page_info">Создание статьи</h2>
+<p>
+	Заголовок статьи<br>
+    <input type="text" style="border:1px silver solid; " name="title" id="title">
+</p>
+<p>
+   Содержимое статьи<br>
+   <textarea style=" height:260px;"  name="text" id="text" cols="80" ></textarea>
+</p>
+<div class="center_button">
+ <input type="submit" class="button" onclick="send()"  id="submit" value="Подтвердить">
+ </div>
+<div id="article_add_error" class="error">
+</div>
+</div>
+
+ </div>
 </body>
 </html>
