@@ -12,26 +12,29 @@ if(!isset($_SESSION['articles_perms']))
 }
 if(!(isset($_POST['id'])&&isset($_POST['title'])&&isset($_POST['text'])))
 {
-
-	echo "У вас нет прав доступа.";
+	echo "Invalid request";
 	return;
 }
 $flag=true;
 	$title=htmlspecialchars($_POST['title']);
-	if($title=="")
+	if(empty($title))
 	{
 		$flag=false;
 		echo "Поле заголовок должно быть заполнено.";
 	}
 
 	$text=htmlspecialchars($_POST['text']);
-	if($text=="")
+	if(empty($text))
 	{
 		$flag=false;
 		echo "Поле контента не должно быть пустым.";
 	}
 	$id=htmlspecialchars($_POST['id']);
-
+	if(!is_numeric($id))
+	{
+		echo "Invalid request";
+		return;
+	}
 
 if($flag==false)
 {

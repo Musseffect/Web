@@ -53,9 +53,4 @@ xhr.ontimeout=function()
 //error.innerHTML="";
 xhr.send();
 return false;
-
-
-
-
-	
 }

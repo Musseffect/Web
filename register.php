@@ -142,9 +142,9 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-<title>reg form</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<title>Регистрация</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">

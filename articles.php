@@ -2,10 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>this is main page</title>
+<title
+<?php if(isset($_GET['id']))
+{?>Статья
+<?php
+}else{?>
+Статьи
+<?php }?></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">
@@ -18,7 +24,7 @@
 <div class="content">
 <?php
 require_once("menu.php");
-require_once("dbconnection.php");
+//require_once("dbconnection.php");
 function comments($array,$number)//21 ,2-4, 5-20, 
 {
 	if(($number%100>4 && $number%100<21)||$number%10==0||$number%10>4)
@@ -32,16 +38,13 @@ function comments($array,$number)//21 ,2-4, 5-20,
 			echo $array[1];
 	}
 }
-
 $flag=false;
 if(isset($_SESSION['articles_perms']))
 {
 	if($_SESSION['articles_perms']==1)
 	{
 		$flag=true;
-		echo '
-<script src="./js/article_remove.js" type="text/javascript" async>
-</script>';
+		echo '<script src="./js/article_remove.js" type="text/javascript" async></script>';
 	}
 }
 $userid=-1;
@@ -59,7 +62,7 @@ if(isset($_GET['id']))
 	{
 		if(mysqli_num_rows ($result)==0)
 		{
-		echo "Запрашиваемая вами страница не существует";
+		echo '<div class="general_content">Запрашиваемая вами страница не существует</div>';
 		}else{
 		$row=mysqli_fetch_row($result);
 		echo '<article class="article_box_full"><h3 class="page_info">Статья</h3><div class="article_title_full">'.$row[1]. '</div>';
@@ -88,20 +91,18 @@ if(isset($_GET['id']))
 			if(isset($_SESSION['delete_comments']))
 			{
 				if($_SESSION['delete_comments'])
-				$flagcomments=true;
+					$flagcomments=true;
 			}
 			if($result)
 			{
 				$count=mysqli_num_rows($result);
-
 				echo '<div class="comments_count">'.$count.' ';
 				comments(array('комментарий','комментария','комментариев'),$count);
 				echo '</div><div id=comments_box>';
 			while($row=mysqli_fetch_array($result))
 			{
-
-				echo '<div  class="comment_content">
-				<div class="comment_header">';
+				echo '<div class="comment_content">
+				<div class="comment_header" id="comment-'.$row[1].'"">';
 				if(($row[0]==$userid))
 				{echo '<div class="comment_user_author"><span>'
 				.$row[3].'</div>';}else{
@@ -116,12 +117,11 @@ if(isset($_GET['id']))
 			'.$row[2].'
 			</div>';
 			if($flagcomments|| ($row[0]==$userid))
-			{echo '<span class="delete"><a href="#" id="'.$row[1].'" onclick="invoke_modal(comment_delete,this)">Удалить</a></span>';
+			{echo '<span class="delete"><a href="#/" id="'.$row[1].'" onclick="invoke_modal(comment_delete,this)">Удалить</a></span>';
 			}
 			echo '</div>';
 			}
 			echo '</div>';
-
 			}
 			//вывести комментарии
 		}
@@ -147,17 +147,14 @@ $result=mysqli_query($conn,$query);
 			echo '<div class="article_title"><a href=articles.php?id='.$row[0].'>'.$row[1]. '</a></div>';
 			echo '<div class="article_date">'.$row[3].'</div>';
 			echo '<div class="article_preview">';
-
-			$string = strip_tags($row[2]);
-
+			//$string = strip_tags($row[2]);
+			$string=$row[2];
 				if (strlen($string) > 500) {
-
     			$stringCut = substr($string, 0, 500);
     			$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="articles.php?id='.$row[0].'">Прочитать далее</a>'; 
 				}
 			echo $string;
 			echo '</div>';
-		
 			echo '</article>';	
 			}
 			}
@@ -169,8 +166,8 @@ $result=mysqli_query($conn,$query);
 			echo '<div class="article_date">'.$row[3].'</div>';
 			echo '<div class="article_preview">';
 
-			$string = strip_tags($row[2]);
-
+			//$string = strip_tags($row[2]);
+			$strubg=$row[2];
 				if (strlen($string) > 500) {
 
     			$stringCut = substr($string, 0, 500);
@@ -189,7 +186,7 @@ $result=mysqli_query($conn,$query);
 
 ?>
 
-<div id="myModalConfirm">
+<div id="myModalConfirm" class="modal-animate-opacity">
 <div id="modal-confirm">
 <p>Вы уверены?</p>
 <div>
@@ -204,7 +201,7 @@ $result=mysqli_query($conn,$query);
   <li></li><li></li><li></li><li></li>
 </ul>
 </div></div>
-<div id="modal_overlay_error">
+<div id="modal_overlay_error" class="modal-animate-opacity">
 <div class="modal-content">
 <div id="modal_error">
 </div>

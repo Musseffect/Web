@@ -15,10 +15,24 @@ if(!isset($_SESSION['companies_perms']))
 if(isset($_GET["id"]))
 {
 	$id=$_GET["id"];
+	if(!is_numeric($id))
+	{
+		echo "Invalid request";
+		return;
+	}
 }else
 {
-	echo "Возникла ошибка";
+	echo "Invalid request";
 	return;
+}
+$query="SELECT logo from companies where id=".$id;
+$result=mysqli_query($conn,$query);
+if($result)
+{
+	unlink(mysqli_fetch_row($result)[0]);
+}else
+{
+	echo "Удаление не удалось."
 }
 $query="DELETE from companies where id=".$id;
 $result=mysqli_query($conn,$query);

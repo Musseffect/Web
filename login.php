@@ -99,10 +99,10 @@ if($flag=true)
 <!DOCTYPE html>
 <html>
 <head>
-<title>reg form</title>
+<title>Авторизация</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">

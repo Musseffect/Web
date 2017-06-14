@@ -24,7 +24,7 @@ if(!(isset($_POST['ID_article'])&&isset($_POST['comment'])))
 		echo "Invalid request.";
 		return;
 	}
-	$comment=htmlspecialchars($_POST['comment']);
+	$comment=nl2br((htmlspecialchars($_POST['comment'])),false);
 	if($comment=="")
 	{
 		echo "Комментарий не должен быть пустым.";
@@ -60,6 +60,20 @@ if(!$result)
 }
 $date=date("Y-m-d H:i:s");
 $comment=substr($comment,0,255);
+//if($stmt=mysqli_prepare("INSERT into comments SET ID_article=?,ID_user=?, comment=?, date=?")){
+/*
+	mysqli_stmt_bind_param($stmt,"ddss",$,,,);
+	if(mysqli_stmt_execute($stmt))
+	{
+	//mysqli_stmt_bind_result($stmt,$result); 
+	mysqli_stmt_close($stmt);
+	}else
+	{
+	
+
+	}
+}
+*/
 $query="INSERT into comments SET
             ID_article='".$id_article."',
             ID_user='".$id_user."',

@@ -21,6 +21,7 @@ function invoke_modal(act,arg)
 argument=arg;
 action=act;
 modal.style.display="block";
+return false;
 }
 function accept_modal()
 {

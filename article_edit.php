@@ -6,15 +6,14 @@ if(!isset($_SESSION['articles_perms']))
 {
 	header('Location: articles.php');//redirect to main;
 }
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>this is main page</title>
+<title>Редактирование статьи</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">

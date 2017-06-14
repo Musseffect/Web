@@ -24,6 +24,8 @@
 }
 .comment_text{
   overflow-wrap: break-word;
+  font-family:Arial;
+  font-size:10pt;
 }
 .comment_header
 {
@@ -35,6 +37,8 @@
 {	width:100%;
 	resize: vertical;
 	min-height:100px;
+  font-family:Arial;
+  font-size:10pt;
 }
 .comments_count
 {

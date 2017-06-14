@@ -159,11 +159,61 @@ html
 	
   height:100%;
 }
+.general_content
+{
+	margin:10px 20px;
+}
+@media (min-width: 900px){
+.general_content
+{
+	margin:10px 10% 10px 10%;
+}
+.general_h2
+{
+	font-size:1.4em;
+	font-weight:bold;
+}
+}
+
+.u-list-general
+{
+	list-style:disc outside;
+	margin:16px 0px;
+	padding:0px 40px;
+}
+.btn-as-a
+{
+	background:none;
+	color:black;
+	border:none;
+}
+.btn-item
+{
+	text-decoration:none;
+	color:black;
+}
+.row-left
+{
+	margin-bottom:20px;
+	font-size:25px;
+
+}
+h5
+{
+	font-size:1.1em;
+	font-weight:bold;
+}
+.row-right
+{
+}
 .content
 {
   flex: 1 0 auto;
 }
-
+p
+{
+	margin:10px 0px;
+}
 
 #register_form,#login_form
 {
@@ -242,6 +292,6 @@ html
 
 .dropdown-content
 {
-
+z-index:5;
 display:none;
 }

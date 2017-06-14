@@ -13,10 +13,10 @@ if(!isset($_SESSION['articles_perms']))
 <head>
 <script src="./js/article_add.js" type="text/javascript" async>
 </script>
-<title>this is news creator page</title>
+<title>Создание статьи</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/news.css">

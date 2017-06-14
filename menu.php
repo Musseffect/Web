@@ -38,21 +38,21 @@ echo '
 
 		<li class="listelement"><a class="btn-item" href="articles.php">Cтатьи<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="cloud.php">Что такое облачные вычисления<i style="position:absolute;right:5px;"></i></a></li>
-<li class="listelement"><a class="btn-item" href="top.php">Топ 10<i style="position:absolute;right:5px;"></i></a></li>
+<li class="listelement"><a class="btn-item" href="termins.php">Термины облачных вычислений<i style="position:absolute;right:5px;"></i></a></li>
 <li class="listelement"><a class="btn-item" href="companies.php">Компании<i style="position:absolute;right:5px;"></i></a></li>
-<li class="listelement dropdown-button"><a class="btn-item" href="#">Список ресурсов</a>
+<li class="listelement dropdown-button"><a class="btn-item" href="cloud.php#types">Типы облачных служб</a>
 <ul class="dropdown-content">
-<li class="listelement"><a class="btn-item" href="#">1</a>
+<li class="listelement"><a class="btn-item" href="iaas.php">IaaS</a>
 </li>
-<li class="listelement"><a class="btn-item" href="#">2</a>
+<li class="listelement"><a class="btn-item" href="paas.php">PaaS</a>
 </li>
-<li class="listelement"><a class="btn-item" href="#">3</a>
+<li class="listelement"><a class="btn-item" href="saas.php">SaaS</a>
 </li>
 </ul>
 </li>
 		</ul></nav>
 	</div>
-	<div style="width:auto;height:80px;/*! float:left; *//*! display: table-cell; */overflow-x: hidden;overflow-y: hidden;/*! display: flex; */"><a style="margin:auto; height: 100%;width: 100%;display: flex;" href="main.php" title="home"><img style="height:100%;/*! width: 100%; */margin: auto;" src="content/g4326.png"></a></div>
+	<div style="width:auto;height:80px;/*! float:left; *//*! display: table-cell; */overflow-x: hidden;overflow-y: hidden;/*! display: flex; */"><a style="margin:auto; height: 100%;width: 100%;display: flex;" href="main.php" title="home"><img style="height:100%;/*! width: 100%; */margin: auto;" src="logo_gd.php"></a></div><!--"content/g4326.png"-->
 	<!--<div id="menubar">
 		<nav id="menu"><ul class="list">
 
@@ -65,7 +65,7 @@ echo '
 		</ul></nav>
 	</div>--></div>
 </header>
-<div id="myModal" class="modal">
+<div id="myModal" class="modal  modal-animate-opacity">
 <div class="modal-content">
       <div class="modal-header">
     <span class="close">&times;</span>

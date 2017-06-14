@@ -2,10 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>this is main page</title>
+<title
+<?php if(isset($_GET['id']))
+{?>Компания
+<?php
+}else{?>
+Компании
+<?php }?></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/company.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
@@ -13,7 +19,7 @@
 <body>
 <div class="content">
 <?php require_once("menu.php");
-require_once("dbconnection.php");
+//require_once("dbconnection.php");
 $flag=false;
 if(isset($_SESSION['companies_perms']))
 {
@@ -41,11 +47,11 @@ if(isset($_GET['id']))
 <hr>
 <dl>
 <dt>Год основания</dt>
-<dd>'.$row[2].'</dd>
-<hr style="border-top:1px dashed black;">
-<dt>Сайт</dt>
-<dd><a href="http://asdasd">'.$row[3].'</a></dd>
-</dl>
+<dd>'.$row[2].'</dd>';
+if(!empty($row[3]))
+{echo'<hr style="border-top:1px dashed black;"><dt>Сайт</dt>
+<dd><a href="http://'.$row[3].'">'.$row[3].'</a></dd>';}
+echo '</dl>
 </div>
 <div style="font-size:120%;">О Компании</div>
 <hr>
@@ -53,7 +59,7 @@ if(isset($_GET['id']))
 </div>';
 			if($flag)
 			{
-			echo '<div style="padding: 10px 30px 10px 30px;"><a href="" onclick="company_remove('.$id.')" id="'.$id.'" class="a_button">Удалить</a>
+			echo '<div style="padding: 10px 30px 10px 30px;"><a href="#/" onclick="company_remove('.$id.')" id="'.$id.'" class="a_button">Удалить</a>
 			</div>';
 			}
 		}

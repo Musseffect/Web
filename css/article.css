@@ -40,6 +40,7 @@
 
 .article_preview
 {
+  overflow-wrap:break-word;
 }
 
 .article_box_admin
@@ -49,34 +50,55 @@
   padding: 5px 5px 5px 5px;
   position:relative;
 }
+.delete>a
+{
+  color:black;
+}
 .delete_article
 {
-	width:10px;
-	height:10px;
+	width:20px;
+	height:20px;
 	/*position:absolute;
 	right:0px;
 	bottom:0px;
 	top:0px;*/
 	float:right;
-	background-color:red;
+	/*background-color:red;*/
+  background-color:#f000;
+  background-image:url("../content/x-mark-4-64-red.png");
+    background-repeat: no-repeat;
+     filter:grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  background-size: 20px 20px;
+  border: none;
+  outline: none;
 }
-.delete_article:before
-{
-	content:'x';
-
-}
-
 .edit_article
 {
-	width:10px;
-	height:10px;
+	width:20px;
+	height:20px;
 	/*position:absolute;
 	right:0px;
 	top:40px;*/
 	float:right;
-	background-color:green;
+	/*background-color:green;*/
+  background-color:#f000;
+  background-image:url("../content/edit-11-64-green.png");
+  filter:grayscale(100%) brightness(0%);
+  -webkit-filter: grayscale(100%) brightness(0%);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  border: none;
+  outline: none;
 }
-
+.edit_article:hover
+{-webkit-filter: none;
+    filter:none;
+}
+.delete_article:hover
+{-webkit-filter: none;
+    filter:none;
+}
 
 .article_box_full
 {

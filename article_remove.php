@@ -15,6 +15,11 @@ if(!isset($_SESSION['articles_perms']))
 if(isset($_GET["id"]))
 {
 	$id=$_GET["id"];
+	if(!is_numeric($id))
+	{
+		echo "Invalid request";
+	return;
+	}
 }else
 {
 	echo "Возникла ошибка";

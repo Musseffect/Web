@@ -46,9 +46,4 @@ if(isset($_SESSION['id']))
 {
 	header("Location: articles.php");
 }
-
-
-
-
-
 ?>

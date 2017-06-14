@@ -98,7 +98,9 @@ xhr.onreadystatechange=function()
 				{
 				//setTimeout(' window.location.href = "main.html"; ',2000);
 				//str="articles.php?id="+this.responseText.substr(2);
-				setTimeout(' location.reload(true);',1000);
+				//setTimeout(' location.reload(true);',1000);
+				str=window.location.href.split('#')[0]+"#comment-"+this.responseText.substr(2);
+				setTimeout(' window.location.href="'+str+'"; location.reload(true);',1000);
 				}
 			else
 			{	

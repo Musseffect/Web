@@ -40,6 +40,10 @@ if(empty($date))
 {
 	$date_error="Введите дату";
 	$flag=false;
+}else if($date>date('Y'))
+{
+	$date_error="Тайм тревел недопустим!";
+	$flag=false;
 }
 if(empty($description))
 {
@@ -137,10 +141,10 @@ if($result)
 <!DOCTYPE html>
 <html>
 <head>
-<title>this is main page</title>
+<title>Добавление компании</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/company.css">
