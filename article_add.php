@@ -55,6 +55,6 @@ if($result)
 }else
 {
 	echo "Не удалось добавить статью.";
-	echo mysql_error();
+	echo mysqli_error($conn);
 }
 ?>

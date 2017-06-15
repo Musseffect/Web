@@ -125,7 +125,7 @@ if($result)
 	header("Location: companies.php?id=".mysqli_insert_id($conn));
 }else
 {
-	$error='Не удалось добавить компанию.'.mysql_error();
+	$error='Не удалось добавить компанию.'.mysqli_error($conn);
 }
 }else
 {

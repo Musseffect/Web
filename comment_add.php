@@ -60,20 +60,20 @@ if(!$result)
 }
 $date=date("Y-m-d H:i:s");
 $comment=substr($comment,0,255);
-//if($stmt=mysqli_prepare("INSERT into comments SET ID_article=?,ID_user=?, comment=?, date=?")){
-/*
+if($stmt=mysqli_prepare("INSERT into comments SET ID_article=?,ID_user=?, comment=?, date=?")){
 	mysqli_stmt_bind_param($stmt,"ddss",$,,,);
 	if(mysqli_stmt_execute($stmt))
 	{
 	//mysqli_stmt_bind_result($stmt,$result); 
 	mysqli_stmt_close($stmt);
+	echo "ok".mysqli_insert_id($conn);
 	}else
 	{
-	
-
+	 echo "Возникла проблема при соединении с базой данных.";
+	 echo mysqli_error($conn);
 	}
 }
-*/
+/*
 $query="INSERT into comments SET
             ID_article='".$id_article."',
             ID_user='".$id_user."',
@@ -86,6 +86,6 @@ if($result)
 }else
 {
 	echo "Не удалось добавить комментарий. ";
-	echo mysql_error();
-}
+	echo mysqli_error($conn);
+}*/
 ?>

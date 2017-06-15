@@ -89,7 +89,7 @@ if($count==0)
 	}else
 	{
 		$flag=false;
-		$error="Регистрация не удалась.".mysql_error();
+		$error="Регистрация не удалась.";//.mysqli_error($conn);
 	}
 	}
 }else

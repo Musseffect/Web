@@ -140,7 +140,8 @@ else
 	$result=mysqli_query($conn,$query);
 	if($result)
 	{
-		$count=mysql_fetch_row($result)[0];
+		$row=mysql_fetch_row($result);
+		$count=$row[0];
 		$totalpages=ceil($count/$page_limit);
 		$page_id=min($page_id,$totalpages);
 		$page_id=max(1,$page_id);

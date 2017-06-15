@@ -29,18 +29,21 @@ $query="SELECT logo from companies where id=".$id;
 $result=mysqli_query($conn,$query);
 if($result)
 {
-	unlink(mysqli_fetch_row($result)[0]);
+	$row=mysqli_fetch_row($result);
+	if(!empty($row[0]));
+	@unlink($row[0]);
 }else
 {
-	echo "Удаление не удалось."
+	echo "Удаление не удалось.";
 }
 $query="DELETE from companies where id=".$id;
 $result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
 		echo "ok";
- 	}
-	}else
+ 	
+	}else{
 		echo "Удаление не удалось.";
-}
+	}
+
 ?>

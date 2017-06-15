@@ -1,0 +1,8 @@
+[15-Jun-2017 07:19:00 UTC] PHP Parse error:  syntax error, unexpected T_FOR, expecting ',' or ';' in Z:\home\cloudcomputing.ru\www\articles.php on line 230
+[15-Jun-2017 07:33:29 UTC] PHP Parse error:  syntax error, unexpected '[' in Z:\home\cloudcomputing.ru\www\company_remove.php on line 32
+[15-Jun-2017 07:34:34 UTC] PHP Parse error:  syntax error, unexpected '[' in Z:\home\cloudcomputing.ru\www\company_remove.php on line 32
+[15-Jun-2017 07:37:06 UTC] PHP Parse error:  syntax error, unexpected '[' in Z:\home\cloudcomputing.ru\www\company_remove.php on line 32
+[15-Jun-2017 07:38:39 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in Z:\home\cloudcomputing.ru\www\company_remove.php on line 37
+[15-Jun-2017 07:38:56 UTC] PHP Parse error:  syntax error, unexpected '}' in Z:\home\cloudcomputing.ru\www\company_remove.php on line 44
+[15-Jun-2017 07:39:11 UTC] PHP Parse error:  syntax error, unexpected '}' in Z:\home\cloudcomputing.ru\www\company_remove.php on line 46
+[15-Jun-2017 07:43:37 UTC] PHP Warning:  unlink() [<a href='function.unlink'>function.unlink</a>]: Invalid argument in Z:\home\cloudcomputing.ru\www\company_remove.php on line 33

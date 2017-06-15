@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title
+<title>
 <?php if(isset($_GET['id']))
 {?>Компания
 <?php
@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 </head>
 <body>
+<script src="./js/modal.js" type="text/javascript" async></script>
 <div class="content">
 <?php require_once("menu.php");
 //require_once("dbconnection.php");
@@ -51,6 +52,7 @@ if(isset($_GET['id']))
 if(!empty($row[3]))
 {echo'<hr style="border-top:1px dashed black;"><dt>Сайт</dt>
 <dd><a href="http://'.$row[3].'">'.$row[3].'</a></dd>';}
+echo '<script src="./js/company_remove.js" type="text/javascript" async></script>';
 echo '</dl>
 </div>
 <div style="font-size:120%;">О Компании</div>
@@ -59,7 +61,7 @@ echo '</dl>
 </div>';
 			if($flag)
 			{
-			echo '<div style="padding: 10px 30px 10px 30px;"><a href="#/" onclick="company_remove('.$id.')" id="'.$id.'" class="a_button">Удалить</a>
+			echo '<div style="padding: 10px 30px 10px 30px;"><a href="#/" onclick="invoke_modal(company_remove,this)"" id="'.$id.'" class="a_button">Удалить</a>
 			</div>';
 			}
 		}
@@ -68,7 +70,7 @@ echo '</dl>
 
 }else
 {
-	$query="select id as I,company_name as N,company_description as D,logo as L  from companies";
+	$query="select id as I,company_name as N,company_description as D,logo as L  from companies order by N asc";
 	$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{
@@ -98,6 +100,28 @@ echo '</dl>
 }
 }
  ?>
+ <div id="myModalConfirm" class="modal-animate-opacity">
+<div id="modal-confirm">
+<p>Вы уверены?</p>
+<div>
+<input type="button" value="Да" onclick="accept_modal()" class="modal_button">
+<input type="button" value="Нет" onclick="reject_modal()" class="modal_button">
+</div>
+</div>
+</div>
+ <div id="modal_overlay_error" class="modal-animate-opacity">
+<div class="modal-content">
+<div id="modal_error">
+</div>
+<input type="button" value="Закрыть" id="error_button" onclick="close_modal_error()" class="button">
+</div>
+</div>
+ <div id="throbber">
+<ul class="loader">
+  <li></li><li></li><li></li><li></li>
+  <li></li><li></li><li></li><li></li>
+</ul>
+</div>
 </div>
 
 <?php require_once("footer.php");?>
