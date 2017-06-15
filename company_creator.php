@@ -1,6 +1,6 @@
 <?php session_start();
 require_once "dbconnection.php";
-
+//error_reporting(E_ALL);
 if(!isset($_SESSION['companies_perms']))
 {
 	header("location: companies.php");
@@ -54,11 +54,10 @@ $name="";
 if($flag)
 	{	if((!empty($_FILES['logo']))&&(!empty($_FILES['logo']['name'])))
 		{
-			print_r($_FILES['logo']);
 			if(($_FILES['logo']['error']==0))
 			{
 				$filePath=$_FILES['logo']['tmp_name'];
-				echo $filePath;
+				//echo $filePath;
 			$fi = finfo_open(FILEINFO_MIME_TYPE);
 			$mime = (string) finfo_file($fi, $filePath);
 			if (strpos($mime, 'image') === false) 
@@ -83,12 +82,11 @@ if($flag)
    				 		$error='При записи изображения на диск произошла ошибка';
 					}
 					$name=$name.$format;
-
 				}
 			}
 			}else
 			{
-			  $errorMessages = [
+			  $errorMessages = array(
        		UPLOAD_ERR_INI_SIZE   => 'Размер файла превысил значение upload_max_filesize в конфигурации PHP.',
        	 	UPLOAD_ERR_FORM_SIZE  => 'Размер загружаемого файла превысил значение MAX_FILE_SIZE в HTML-форме.',
        		 UPLOAD_ERR_PARTIAL    => 'Загружаемый файл был получен только частично.',
@@ -96,7 +94,7 @@ if($flag)
         	UPLOAD_ERR_NO_TMP_DIR => 'Отсутствует временная папка.',
         	UPLOAD_ERR_CANT_WRITE => 'Не удалось записать файл на диск.',
         	UPLOAD_ERR_EXTENSION  => 'PHP-расширение остановило загрузку файла.',
-   	 		];
+   	 		);//[] работают с версии 5.4
     	 	$unknownMessage = 'При загрузке файла произошла неизвестная ошибка.';
   		  	$outputMessage = isset($errorMessages[$_FILES['logo']['error']]) ? $errorMessages[$_FILES['logo']['error']] : $unknownMessage;
     		$error=$outputMessage;
@@ -113,6 +111,23 @@ if($flag)
 $date=htmlspecialchars($_POST['date']);
 $site=htmlspecialchars($_POST['site']);
 $description=htmlspecialchars($_POST['description']);*/
+if($stmt=mysqli_prepare($conn,"INSERT into companies SET company_name=?, site=?, year=?, logo=?, company_description=?")){
+	mysqli_stmt_bind_param($stmt,"sssss",$title,$site,$date,$name,$description);
+	if(mysqli_stmt_execute($stmt))
+	{
+	//mysqli_stmt_bind_result($stmt,$result); 
+	mysqli_stmt_close($stmt);
+	header("Location: companies.php?id=".mysqli_insert_id($conn));
+	}else
+	{
+	 $error= "Возникла проблема при соединении с базой данных.".mysqli_error($conn);
+	}
+}else
+{
+
+	 $error= "Возникла проблема при соединении с базой данных.".mysqli_error($conn);
+	}
+/*
 $query="INSERT into companies SET
             company_name='".$title."',
             site='".$site."',
@@ -126,7 +141,7 @@ if($result)
 }else
 {
 	$error='Не удалось добавить компанию.'.mysqli_error($conn);
-}
+}*/
 }else
 {
 
@@ -153,16 +168,11 @@ if($result)
 <?php require_once("menu.php");?>
 
 <form method="POST" id="company_add_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-<h3 class="page_info">Добавление компании</h3>
-Название<br>
-<input type="text" id="company_add_title" name="title" value="<?php echo $title;?>" maxlength="40"><span class="form_error"><?php echo $title_error;?></span>
-<br>Год создания<br>
-<input type="number" id="date" name="date" min="1971" max="<?php echo date('Y'); ?>" value="<?php echo $date;?>">
-<br>Сайт компании<br>
-<input type="text" id="site" name="site" value="<?php echo $site;?>" maxlength="40">
-<br>Описание<br>
-<input type="text" id="description" name="description"  value="<?php echo $description;?>" maxlength="255"><span class="form_error"><?php echo $description_error;?></span><br>
-Логотип<br>
+<h3 class="page_info">Добавление компании</h3>Название<br>
+<input type="text" id="company_add_title" name="title" value="<?php echo $title;?>" maxlength="40"><span class="form_error"><?php echo $title_error;?></span><br>Год создания<br>
+<input type="number" id="date" name="date" min="1971" max="<?php echo date('Y'); ?>" value="<?php echo $date;?>"><span class="form_error"><?php echo $date_error;?></span><br>Сайт компании<br>
+<input type="text" id="site" name="site" value="<?php echo $site;?>" maxlength="40"><br>Описание<br>
+<input type="text" id="description" name="description"  value="<?php echo $description;?>" maxlength="255"><span class="form_error"><?php echo $description_error;?></span><br>Логотип<br>
 <input type="file" id="logo" name="logo" multiple="false" accept="image/*" value="Выберите изображение"><span class="form_error"><?php echo $logo_error;?></span><br>
 <input type="submit" id="company_create_button" value="Добавить" class="button">
 <span class="error"><?php echo $error;?></span>

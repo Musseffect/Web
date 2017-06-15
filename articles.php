@@ -102,7 +102,7 @@ if(isset($_GET['id']))
 			while($row=mysqli_fetch_array($result))
 			{
 				echo '<div class="comment_content">
-				<div class="comment_header" id="comment-'.$row[1].'"">';
+				<div class="comment_header" id="comment-'.$row[1].'">';
 				if(($row[0]==$userid))
 				{echo '<div class="comment_user_author"><span>'
 				.$row[3].'</div>';}else{
@@ -113,9 +113,7 @@ if(isset($_GET['id']))
 				.$row[4].'
 				</div>
 			</div>
-			<div class="comment_text">
-			'.$row[2].'
-			</div>';
+			<div class="comment_text">'.$row[2].'</div>';
 			if($flagcomments|| ($row[0]==$userid))
 			{echo '<span class="delete"><a href="#/" id="'.$row[1].'" onclick="invoke_modal(comment_delete,this)">Удалить</a></span>';
 			}
@@ -140,7 +138,7 @@ else
 	$result=mysqli_query($conn,$query);
 	if($result)
 	{
-		$count=mysql_fetch_row($result)[0];
+		$count=mysqli_fetch_row($result)[0];
 		$totalpages=ceil($count/$page_limit);
 		$page_id=min($page_id,$totalpages);
 		$page_id=max(1,$page_id);

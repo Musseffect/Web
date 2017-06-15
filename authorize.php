@@ -10,6 +10,29 @@ if(isset($_POST['submit']))
 	}
 	$username=$_POST['username'];
 	$pass=$_POST['password'];
+
+	if(preg_match('/[^a-zA-Z0-9_]/', $login) == 0)
+    {
+    }
+    else
+    {
+    	echo "Логин может содержать только английские буквы и цифры.";
+        $flag=false;
+    }
+
+if(preg_match('/[^a-zA-Z0-9_]/', $pass) == 0)
+    {
+    }
+    else
+    {
+    	echo "Пароль может содержать только английские буквы и цифры.";
+        $flag=false;
+    }
+    if($flag==false)
+    {
+    	return;
+    }
+
 	$pass=md5($pass);
 	try{
 	$query="select p.delete_comments,p.articles_perms,p.companies_perms,u.Username,u.User_ID from users as u INNER JOIN permissions as p on u.id_permissions=p.id where u.Username='".$username."' and Password= '".$pass."'";

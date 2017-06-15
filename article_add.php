@@ -44,6 +44,29 @@ if($flag==false)
 {
 	return;
 }
+if($stmt=mysqli_prepare($conn,"INSERT into articles SET article_title=?,date=?, article_content=?")){
+	mysqli_stmt_bind_param($stmt,"sss",$title,$date,$text);
+	if(mysqli_stmt_execute($stmt))
+	{
+	//mysqli_stmt_bind_result($stmt,$result); 
+	mysqli_stmt_close($stmt);
+	echo "ok".mysqli_insert_id($conn);
+	}else
+	{
+	 echo "Возникла проблема при соединении с базой данных.";
+	 echo mysqli_error($conn);
+	}
+}
+
+
+
+
+
+
+
+
+
+/*
 $query="INSERT into articles SET
             article_title='".$title."',
             date='".$date."',
@@ -56,5 +79,5 @@ if($result)
 {
 	echo "Не удалось добавить статью.";
 	echo mysqli_error($conn);
-}
+}*/
 ?>

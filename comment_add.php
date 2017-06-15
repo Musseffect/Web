@@ -19,7 +19,7 @@ if(!(isset($_POST['ID_article'])&&isset($_POST['comment'])))
 		return;
 	}
 	$id_user=htmlspecialchars($_SESSION['id']);
-	if($id_article=="")
+	if($id_user=="")
 	{
 		echo "Invalid request.";
 		return;
@@ -60,8 +60,8 @@ if(!$result)
 }
 $date=date("Y-m-d H:i:s");
 $comment=substr($comment,0,255);
-if($stmt=mysqli_prepare("INSERT into comments SET ID_article=?,ID_user=?, comment=?, date=?")){
-	mysqli_stmt_bind_param($stmt,"ddss",$,,,);
+if($stmt=mysqli_prepare($conn,"INSERT into comments SET ID_article=?,ID_user=?, comment=?, date=?")){
+	mysqli_stmt_bind_param($stmt,"ddss",$id_article,$id_user,$comment,$date);
 	if(mysqli_stmt_execute($stmt))
 	{
 	//mysqli_stmt_bind_result($stmt,$result); 

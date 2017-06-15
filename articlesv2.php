@@ -128,47 +128,36 @@ if(isset($_GET['id']))
 	}else
 	echo "Запрашиваемая вами страница не существует";
 
-}else if(isset($_GET['page'])&&is_numeric($_GET['page']))
-{
-/*
+}else 
+
 $page_limit=5;
-$count=0;
+if(isset($_GET['page'])&&is_numeric($_GET['page']))
+{
+
 $page_id=$_GET['page'];
+
+}
 else
 {
+$page_id=1;
+}
+$count=0;
+$page_id=$_GET['page'];
 	$query="Select COUNT(*) from articles";
 	$result=mysqli_query($conn,$query);
 	if($result)
 	{
-		$row=mysql_fetch_row($result);
+		$row=mysqli_fetch_row($result);
 		$count=$row[0];
 		$totalpages=ceil($count/$page_limit);
 		$page_id=min($page_id,$totalpages);
 		$page_id=max(1,$page_id);
 		$offset=($page_id-1)*$page_limit;
 		$query="SELECT   from articles LIMIT $offset,$page_limit";
-
-
-
-
-
-	}
-	else{
-		echo"Ошибка соединения с базой данных.";
-	
-	}
-
-
-}
-*/
-}
-else
-{
-$query="select ID_article as I,article_title as T,article_content as C,date as D from articles order by date desc";
-$result=mysqli_query($conn,$query);
+		$query="select ID_article as I,article_title as T,article_content as C,date as D from articles order by date desc LIMIT ".$offset.",".$page_limit;
+		$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{	
-		{
 			echo '<div id="articles_column"><h2 class="page_info">Статьи</h2>';
 			if($flag==true)//admin
 			{
@@ -214,25 +203,32 @@ $result=mysqli_query($conn,$query);
 		}
 	}
 		echo '</div>';
+		drawpagination(4,$totalpages,$page_id);
 	}
 	}
-}
-
+	else{
+		echo"Ошибка соединения с базой данных.";
+	
+		}
 ?>
-<?php function drawpagination($pagination_count_const,$pagination_count_current,$current)
+<?php function drawpagination($range,$page_count,$current)
 {
 if($pagination_count_current!=1)
 {
-	$left_offset=min($current-1,floor($pagination_count_const/2));
-	$right_offset=min($pagination_count_current+1-$current,$pagination_count_const-$left_offset);
+	$left_offset=min($current-1,$range);
+	$right_offset=min($page_count+1-$current,$range);
 	$offset_width=$right_offset+$left_offset;
 	$left=$current-$left_offset;
-	echo "<div>";
+	echo '<div style="text-align:center;width:100%;"><div class="pagination">';
 	for($i=0;$i<$offset_width;$i++)
 	{
-		echo '<a href=articles?page='.$current.' style="float:left;"></a>';
+		$p=$left+$i;
+		if($current==$p)
+		echo '<a class="active-page" href="articlesv2.php?page='.$p.'">'.$p.'</a>';
+		else
+		echo '<a href=articlesv2.php?page='.$p.'>'.$p.'</a>';
 	}
-	echo "</div>";
+	echo "</div></div>";
 }
 }
 ?>

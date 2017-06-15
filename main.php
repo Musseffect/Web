@@ -11,41 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/news.css">
 </head>
 <body>
+<div class="content">
 <?php include_once("menu.php");?>
-<div id="last_news">
-<p id="last_news_title">Последние новости</p>
-<?php
-	$query="select id as I,date as D,title as T,text as P from news order by date desc limit 5";
-	$result=mysqli_query($conn,$query);
-	if($result!=false)
-	{
-		if(mysqli_num_rows ($result )==0)
-		{
-			echo '<div>К сожалению на данный момент на сайте нет ни одной новости.</div>';
-		}else
-		{
-		while($row=mysqli_fetch_array($result))
-		{
-			echo '<article class="news_box"><a href=news.php?id='.$row[0].'><div class="news_title">'.$row["T"]. '</div></a>';
-			echo '<div class="news_date">'.$row[3].'</div>';
-			echo '<div class="news_preview">';
-
-			$string = strip_tags($row[2]);
-
-				if (strlen($string) > 500) {
-
-    			$stringCut = substr($string, 0, 500);
-    			$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="news.php?id='.$row[0].'">Прочитать далее</a>'; 
-				}
-			echo $string;
-			echo '</div>';
-			echo '</article>';	
-
-		}
-		}
-	}
-?>
-</div>
 <div id="last_articles">
 <p id="last_articles_title">Последние статьи</p>
 <?php
@@ -76,8 +43,8 @@
 	}
 ?>
 </div>
-<footer>
-</footer>
+</div>
+<?php require_once("footer.php");?>
 </body>
 </html>
 

@@ -8,12 +8,12 @@ $username=$_REQUEST['username'];
 //check username
 $query="select username from users where username='".$username."'";
 $result=mysqli_query($conn,$query);
-$count=mysql_num_rows($result);
+$count=mysqli_num_rows($result);
 if($count==0)
 {
 	$query="select id from permissions where role_name='user'";
 	$result=mysqli_query($conn,$query);
-	$count=mysql_num_rows($result);
+	$count=mysqli_num_rows($result);
 	if($count==0)
 	{
 		echo 'Регистрация не удалась';

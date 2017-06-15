@@ -64,11 +64,11 @@
 	top:0px;*/
 	float:right;
 	/*background-color:red;*/
-  background-color:#f000;
+  background-color:rgba(0,0,0,0);
   background-image:url("../content/x-mark-4-64-red.png");
     background-repeat: no-repeat;
-     filter:grayscale(100%);
   -webkit-filter: grayscale(100%);
+     filter:grayscale(100%);
   background-size: 20px 20px;
   border: none;
   outline: none;
@@ -82,10 +82,10 @@
 	top:40px;*/
 	float:right;
 	/*background-color:green;*/
-  background-color:#f000;
+  background-color:rgba(0,0,0,0);
   background-image:url("../content/edit-11-64-green.png");
-  filter:grayscale(100%) brightness(0%);
   -webkit-filter: grayscale(100%) brightness(0%);
+  filter:grayscale(100%) brightness(0%);
   background-repeat: no-repeat;
   background-size: 20px 20px;
   border: none;

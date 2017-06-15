@@ -31,7 +31,7 @@ if($result)
 {
 	$row=mysqli_fetch_row($result);
 	if(!empty($row[0]));
-	@unlink($row[0]);
+	@unlink("img/".$row[0]);
 }else
 {
 	echo "Удаление не удалось.";

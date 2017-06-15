@@ -295,3 +295,25 @@ p
 z-index:5;
 display:none;
 }
+
+.pagination
+{
+
+	display:inline-block;
+}
+.pagination a
+{
+	float:left;
+	padding:10px 20px;text-decoration: none;
+	color: black;
+	transition: background-color .2s;
+	border: 1px solid black;
+}
+.pagination a:hover:not(.active)
+{
+	background-color:red;
+}
+.pagination a.active-page
+{
+	background-color:green;
+}

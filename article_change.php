@@ -40,6 +40,24 @@ if($flag==false)
 {
 	return;
 }
+
+if($stmt=mysqli_prepare($conn,"Update articles SET article_title=?, article_content=? where ID_article=?")){
+	mysqli_stmt_bind_param($stmt,"ssd",$title,$text,$id);
+	if(mysqli_stmt_execute($stmt))
+	{
+	//mysqli_stmt_bind_result($stmt,$result); 
+	mysqli_stmt_close($stmt);
+	echo "ok".$id;
+	}else
+	{
+	 echo "Возникла проблема при соединении с базой данных.";
+	 echo mysqli_error($conn);
+	}
+}
+
+
+
+/*
 $query="UPDATE articles SET
             article_title='".$title."',
             article_content='".$text."' where ID_article=".$id;
@@ -51,5 +69,5 @@ if($result)
 {
 	echo "Не удалось обновить статью.";
 	echo mysqli_error($conn);
-}
+}*/
 ?>
