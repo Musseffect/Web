@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
-<link rel="stylesheet" type="text/css" href="css/news.css">
 </head>
 <body>
 <div class="content">

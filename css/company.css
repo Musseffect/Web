@@ -18,6 +18,11 @@
 	
 	
 }
+#description
+{
+	width:100%;
+	min-height:80px;
+}
 .companies_block
 {
 	margin:10px 20px 0px 20px;
@@ -65,7 +70,7 @@
 .company_logo
 {
 	
-	
+	min-width:130px;
 	width: 130px;
 	display: inline;
 	float: left;

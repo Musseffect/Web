@@ -21,9 +21,9 @@ if(!(isset($_POST['login'])&&isset($_POST['password'])&&isset($_POST['password2'
 	header("location: register.php");
 	return;
 }
-$login=$_POST['login'];
-$pass=$_POST['password'];
-$pass2=$_POST['password2'];
+$login=trim($_POST['login']);
+$pass=trim($_POST['password']);
+$pass2=trim($_POST['password2']);
 if(empty($login))
 {
 	$login_error="Введите логин";
@@ -147,7 +147,7 @@ else
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
-<link rel="stylesheet" type="text/css" href="css/news.css">
+<meta charset="utf-8">
 <script>
 /*
 function register()
@@ -169,7 +169,7 @@ xhr.onreadystatechange=function()
 		}else{
 			if(this.responseText=='ok')
 				{
-				setTimeout(' window.location.href = "main.php"; ',2000);
+				setTimeout(' window.location.href = "index.php"; ',2000);
 				}
 			else
 			{	
@@ -208,9 +208,9 @@ return false;
 <form id="register_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 <label><h3>Регистрация</h3></label>
 <label><b>Введите Логин</b></label>
-<input type="text" id="login_register" name="login" placeholder="Логин" value="<?php echo $login; ?>" required><span class="error"><?php echo $login_error;?></span>
+<input type="text" id="login_register" name="login" maxlength="20" placeholder="Логин" value="<?php echo $login; ?>" required><span class="error"><?php echo $login_error;?></span>
 <label><b>Введите Пароль</b></label>
-<input type="password" id="password_register" name="password" value="<?php echo $pass; ?>" placeholder="Пароль" required><span class="error"><?php echo $pass_error;?></span>
+<input type="password" id="password_register" name="password" maxlength="20" value="<?php echo $pass; ?>" placeholder="Пароль" required><span class="error"><?php echo $pass_error;?></span>
 <label><b>Повторите пароль</b></label>
 <input type="password" id="password2_register" name="password2" value="<?php echo $pass2; ?>" placeholder="Пароль"  required><span class="error"><?php echo $pass2_error;?></span>
 <input type="submit" name="submit" id="btn-submit" value="Зарегистрироваться" >

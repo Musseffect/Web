@@ -1,5 +1,5 @@
 <?php
 session_start();
-header('Location: main.php');
+header('Location: index.php');
 session_destroy();  
 ?>

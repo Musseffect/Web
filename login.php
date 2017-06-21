@@ -3,7 +3,7 @@ session_start();
 require_once("dbconnection.php");
 if(isset($_SESSION['name']))
 {
-	header('Location: main.php');//негоже логинится по многу раз
+	header('Location: index.php');//негоже логинится по многу раз
 }
 header('Content-type: text/html; charset=utf-8"');
 

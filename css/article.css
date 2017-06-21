@@ -283,7 +283,7 @@ right: 0;
     background-color:#145314;
     /*  #142d53 ;*/
 }
-#articles_column
+#articles_column,#last_articles
 {
 	margin:10px 20px 0px 20px;
 

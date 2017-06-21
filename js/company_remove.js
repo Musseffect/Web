@@ -25,7 +25,7 @@ xhr.onreadystatechange=function()
 				{
 				//setTimeout(' window.location.href = "main.html"; ',2000);
 				throbber.querySelector(".loader").style.display="none";
-				str="companies.php";
+				var str="companies.php";
 				setTimeout(' window.location.href="'+str+'"; ',1000);
 				}
 			else

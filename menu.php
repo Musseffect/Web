@@ -26,8 +26,7 @@ echo '<section style="float:right;display:block;height:100%;overflow:hidden;">
 </ul>
 </section>';
 echo '
-<script src="./js/loginform.js" type="text/javascript" async>
-</script>';
+<script src="./js/loginform.js" type="text/javascript" async></script>';
 }
 ?>
 </div>
@@ -52,7 +51,7 @@ echo '
 </li>
 		</ul></nav>
 	</div>
-	<div style="width:auto;height:80px;/*! float:left; *//*! display: table-cell; */overflow-x: hidden;overflow-y: hidden;/*! display: flex; */"><a style="margin:auto; height: 100%;width: 100%;display: flex;" href="main.php" title="home"><img style="height:100%;/*! width: 100%; */margin: auto;" src="logo_gd.php"></a></div><!--"content/g4326.png"-->
+	<div style="width:auto;height:80px;/*! float:left; *//*! display: table-cell; */overflow-x: hidden;overflow-y: hidden;/*! display: flex; */"><a style="margin:auto; height: 100%;width: 100%;display: flex;" href="index.php" title="home"><img style="height:100%;/*! width: 100%; */margin: auto;" src="logo_gd.php"></a></div><!--"content/g4326.png"-->
 	<!--<div id="menubar">
 		<nav id="menu"><ul class="list">
 

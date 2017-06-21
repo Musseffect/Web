@@ -21,7 +21,7 @@ xhr.onreadystatechange=function()
 				{
 				//setTimeout(' window.location.href = "main.html"; ',2000);
 				throbber.querySelector(".loader").style.display="none";
-				str="articles.php";
+				var str="articles.php";
 				setTimeout(' window.location.href="'+str+'"; ',1000);
 				}
 			else

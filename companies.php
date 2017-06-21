@@ -13,8 +13,8 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
-<link rel="stylesheet" type="text/css" href="css/company.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
+<link rel="stylesheet" type="text/css" href="css/company.css">
 </head>
 <body>
 <script src="./js/modal.js" type="text/javascript" async></script>
@@ -90,8 +90,13 @@ echo '</dl>
 			echo '<img class="company_logo_img" src="img/'.$row[3].'">';
 			echo '</div>
 			<div class="company_item">
-			<div class="company_name_preview"><a href="companies.php?id='.$row[0].'">'.$row[1].'</a></div>
-			<div class="company_preview_description">'.$row[2].'</div>
+			<div class="company_name_preview"><a href="companies.php?id='.$row[0].'">'.$row[1].'</a></div>';
+			$string=$row[2];
+				if (strlen($string) > 500) {
+    			$stringCut = substr($string, 0, 500);
+    			$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...'; 
+				}
+			echo '<div class="company_preview_description">'.$string.'</div>
 			</div>
 			</div>';
 			}

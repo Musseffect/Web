@@ -6,11 +6,12 @@ if(isset($_POST['submit']))
 {
 	if(!(isset($_POST['username'])&&isset($_POST['password'])))
 	{
-		return "Invalid requiest";
+		echo "Invalid requiest";
+		return;
 	}
+	$flag=true;
 	$username=$_POST['username'];
 	$pass=$_POST['password'];
-
 	if(preg_match('/[^a-zA-Z0-9_]/', $login) == 0)
     {
     }
@@ -20,7 +21,7 @@ if(isset($_POST['submit']))
         $flag=false;
     }
 
-if(preg_match('/[^a-zA-Z0-9_]/', $pass) == 0)
+	if(preg_match('/[^a-zA-Z0-9_]/', $pass) == 0)
     {
     }
     else

@@ -81,6 +81,7 @@ function init_comment_add()
 function add_comment(article_id)
 {
 var xhr = new XMLHttpRequest();
+var throbber=document.getElementById("throbber");
 xhr.open('POST', 'comment_add.php', true);
 xhr.onreadystatechange=function()
 {
@@ -91,6 +92,7 @@ xhr.onreadystatechange=function()
 
 			add_comment_button.value ='Добавить комментарий';
 			add_comment_button.disabled = false;
+			throbber.style.display="none";
 			show_error("Произошла ошибка.");
 
 		}else{
@@ -99,13 +101,20 @@ xhr.onreadystatechange=function()
 				//setTimeout(' window.location.href = "main.html"; ',2000);
 				//str="articles.php?id="+this.responseText.substr(2);
 				//setTimeout(' location.reload(true);',1000);
-				str=window.location.href.split('#')[0]+"#comment-"+this.responseText.substr(2);
-				setTimeout(' window.location.href="'+str+'"; location.reload(true);',1000);
+				//var str=window.location.href.split('#')[0]+"#comment-"+this.responseText.substr(2);
+				//setTimeout(' window.location.href="'+str+'"; location.reload(true);',1000);
+				var cb=document.getElementById("comments_box");
+				cb.insertAdjacentHTML('afterBegin', this.responseText.substr(2));
+				throbber.style.display="none";
+
+				add_comment_button.value ='Добавить комментарий';
+				add_comment_button.disabled = false;
 				}
 			else
 			{	
 				add_comment_button.value='Добавить комментарий';
 				add_comment_button.disabled = false;
+				throbber.style.display="none";
 				show_error(this.responseText);
 			}
 		}
@@ -113,6 +122,7 @@ xhr.onreadystatechange=function()
 };
 add_comment_button.value = 'Подождите...'; // (2)
 add_comment_button.disabled = true;
+throbber.style.display="block";
 var mess='ID_article='+encodeURIComponent(article_id)+'&comment='+encodeURIComponent(comment.value);
 xhr.timeout=30000;
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -120,6 +130,7 @@ xhr.ontimeout=function()
 {
 	add_comment_button.value ='Добавить комментарий';
 	add_comment_button.disabled = false;
+	throbber.style.display="none";
 	show_error('Время ожидание ответа сервера превысило допустимое значение.');
 };
 xhr.send(mess);

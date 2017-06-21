@@ -14,7 +14,6 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/article.css">
-<link rel="stylesheet" type="text/css" href="css/news.css">
 <link rel="stylesheet" type="text/css" href="css/comments.css">
 <script src="./js/article_remove.js" type="text/javascript" async>
 </script>
@@ -102,7 +101,7 @@ if(isset($_GET['id']))
 			while($row=mysqli_fetch_array($result))
 			{
 				echo '<div class="comment_content">
-				<div class="comment_header" id="comment-'.$row[1].'"">';
+				<div class="comment_header" id="comment-'.$row[1].'">';
 				if(($row[0]==$userid))
 				{echo '<div class="comment_user_author"><span>'
 				.$row[3].'</div>';}else{
@@ -113,9 +112,7 @@ if(isset($_GET['id']))
 				.$row[4].'
 				</div>
 			</div>
-			<div class="comment_text">
-			'.$row[2].'
-			</div>';
+			<div class="comment_text">'.$row[2].'</div>';
 			if($flagcomments|| ($row[0]==$userid))
 			{echo '<span class="delete"><a href="#/" id="'.$row[1].'" onclick="invoke_modal(comment_delete,this)">Удалить</a></span>';
 			}
@@ -128,36 +125,46 @@ if(isset($_GET['id']))
 	}else
 	echo "Запрашиваемая вами страница не существует";
 
-}else 
-
+}else if(isset($_GET['page'])&&is_numeric($_GET['page']))
+{
+/*
 $page_limit=5;
-if(isset($_GET['page'])&&is_numeric($_GET['page']))
-{
-
-$page_id=$_GET['page'];
-
-}
-else
-{
-$page_id=1;
-}
 $count=0;
 $page_id=$_GET['page'];
+else
+{
 	$query="Select COUNT(*) from articles";
 	$result=mysqli_query($conn,$query);
 	if($result)
 	{
-		$row=mysqli_fetch_row($result);
-		$count=$row[0];
+		$count=mysqli_fetch_row($result)[0];
 		$totalpages=ceil($count/$page_limit);
 		$page_id=min($page_id,$totalpages);
 		$page_id=max(1,$page_id);
 		$offset=($page_id-1)*$page_limit;
 		$query="SELECT   from articles LIMIT $offset,$page_limit";
-		$query="select ID_article as I,article_title as T,article_content as C,date as D from articles order by date desc LIMIT ".$offset.",".$page_limit;
-		$result=mysqli_query($conn,$query);
+
+
+
+
+
+	}
+	else{
+		echo"Ошибка соединения с базой данных.";
+	
+	}
+
+
+}
+*/
+}
+else
+{
+$query="select ID_article as I,article_title as T,article_content as C,date as D from articles order by date desc";
+$result=mysqli_query($conn,$query);
 	if($result!=false)
 	{	
+		{
 			echo '<div id="articles_column"><h2 class="page_info">Статьи</h2>';
 			if($flag==true)//admin
 			{
@@ -203,32 +210,25 @@ $page_id=$_GET['page'];
 		}
 	}
 		echo '</div>';
-		drawpagination(4,$totalpages,$page_id);
 	}
 	}
-	else{
-		echo"Ошибка соединения с базой данных.";
-	
-		}
+}
+
 ?>
-<?php function drawpagination($range,$page_count,$current)
+<?php function drawpagination($pagination_count_const,$pagination_count_current,$current)
 {
 if($pagination_count_current!=1)
 {
-	$left_offset=min($current-1,$range);
-	$right_offset=min($page_count+1-$current,$range);
+	$left_offset=min($current-1,floor($pagination_count_const/2));
+	$right_offset=min($pagination_count_current+1-$current,$pagination_count_const-$left_offset);
 	$offset_width=$right_offset+$left_offset;
 	$left=$current-$left_offset;
-	echo '<div style="text-align:center;width:100%;"><div class="pagination">';
+	echo "<div>";
 	for($i=0;$i<$offset_width;$i++)
 	{
-		$p=$left+$i;
-		if($current==$p)
-		echo '<a class="active-page" href="articlesv2.php?page='.$p.'">'.$p.'</a>';
-		else
-		echo '<a href=articlesv2.php?page='.$p.'>'.$p.'</a>';
+		echo '<a href=articles?page='.$current.' style="float:left;"></a>';
 	}
-	echo "</div></div>";
+	echo "</div>";
 }
 }
 ?>

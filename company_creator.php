@@ -30,7 +30,7 @@ if(!(isset($_POST['title'])&&isset($_POST['date'])&&isset($_POST['site'])))
 $title=htmlspecialchars($_POST['title']);
 $date=htmlspecialchars($_POST['date']);
 $site=htmlspecialchars($_POST['site']);
-$description=htmlspecialchars($_POST['description']);
+$description=nl2br(htmlspecialchars($_POST['description']),false);
 if(empty($title))
 {
 	$title_error="Введите название компании";
@@ -172,7 +172,8 @@ if($result)
 <input type="text" id="company_add_title" name="title" value="<?php echo $title;?>" maxlength="40"><span class="form_error"><?php echo $title_error;?></span><br>Год создания<br>
 <input type="number" id="date" name="date" min="1971" max="<?php echo date('Y'); ?>" value="<?php echo $date;?>"><span class="form_error"><?php echo $date_error;?></span><br>Сайт компании<br>
 <input type="text" id="site" name="site" value="<?php echo $site;?>" maxlength="40"><br>Описание<br>
-<input type="text" id="description" name="description"  value="<?php echo $description;?>" maxlength="255"><span class="form_error"><?php echo $description_error;?></span><br>Логотип<br>
+<textarea id="description" name="description" maxlength="65000"><?php echo $description;?></textarea>
+<!--<input type="text" id="description" name="description"  value="<?php echo $description;?>" maxlength="255">--><span class="form_error"><?php echo $description_error;?></span><br>Логотип<br>
 <input type="file" id="logo" name="logo" multiple="false" accept="image/*" value="Выберите изображение"><span class="form_error"><?php echo $logo_error;?></span><br>
 <input type="submit" id="company_create_button" value="Добавить" class="button">
 <span class="error"><?php echo $error;?></span>

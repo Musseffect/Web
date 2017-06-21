@@ -66,7 +66,16 @@ if($stmt=mysqli_prepare($conn,"INSERT into comments SET ID_article=?,ID_user=?, 
 	{
 	//mysqli_stmt_bind_result($stmt,$result); 
 	mysqli_stmt_close($stmt);
-	echo "ok".mysqli_insert_id($conn);
+	$id=mysqli_insert_id($conn);
+	$answer='<div class="comment_content">
+				<div class="comment_header" id="comment-'.$id.'"><div class="comment_user_author"><span>'
+				.$_SESSION['name'].'</div><div class="comment_date">'
+				.$date.'</div>
+			</div>
+			<div class="comment_text">'.$comment.'</div><span class="delete"><a href="#/" id="'.$id.'" onclick="invoke_modal(comment_delete,this)">Удалить</a></span></div>';
+
+			echo "ok".$answer;
+	//echo "ok".mysqli_insert_id($conn);
 	}else
 	{
 	 echo "Возникла проблема при соединении с базой данных.";
